@@ -10,11 +10,8 @@ use Illuminate\Http\Request;
 
 class ExportCsv
 {
-    protected FilenameGeneratorContract $filenameGenerator;
-
-    public function __construct(FilenameGeneratorContract $filenameGenerator)
+    public function __construct(protected FilenameGeneratorContract $filenameGenerator)
     {
-        $this->filenameGenerator = $filenameGenerator;
     }
 
     public function handle(Request $request, Closure $next, string $key = 'data')
