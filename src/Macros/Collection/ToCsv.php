@@ -11,11 +11,11 @@ class ToCsv
     {
         return function (): string {
             $csv = Writer::createFromFileObject(new SplTempFileObject());
-            $keys = array_keys($this->first());
-            $csv->insertOne($keys);
+            $header = array_keys($this->first());
+            $csv->insertOne($header);
 
-            $this->each(function (array $item) use ($csv) {
-                $csv->insertOne($item);
+            $this->each(function (array $row) use ($csv) {
+                $csv->insertOne($row);
             });
 
             return $csv->toString();

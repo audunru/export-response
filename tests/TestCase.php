@@ -28,13 +28,7 @@ abstract class TestCase extends BaseTestCase
     protected function defineRoutes($router)
     {
         $router->get('/documents', function () {
-            $jsonResponse = new JsonResponse(['data' => [
-                ['id' => 1, 'name' => 'Navn', 'data' => ['foo' => 'bar'], 'meta' => []],
-                ['id' => 2, 'name' => 'Noe annet', 'data' => ['foo' => 'bar', 'bar' => 'foo']],
-            ],
-            ]);
-
-            return $jsonResponse;
+            return $this->getDataWrappedResponse();
         })->middleware([ExportCsv::class, ExportXml::class])->name('documents');
     }
 
@@ -57,5 +51,29 @@ abstract class TestCase extends BaseTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+    }
+
+    public function getDataWrappedResponse(): JsonResponse
+    {
+        return new JsonResponse([
+            'data' => [
+                [
+                    'id'   => 1,
+                    'name' => 'Navn',
+                    'data' => [
+                        'foo' => 'bar',
+                    ],
+                    'meta' => [],
+                ],
+                [
+                    'id'   => 2,
+                    'name' => 'Noe annet',
+                    'data' => [
+                        'foo' => 'bar',
+                        'bar' => 'foo',
+                    ],
+                ],
+            ],
+        ]);
     }
 }
