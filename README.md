@@ -66,6 +66,42 @@ Route::apiResource('documents', DocumentController::class)
     ->name('documents');
 ```
 
+You can also add the middleware to the `$middlewareGroups` and `$routeMiddleware` arrays in `app/Http/Kernel.php`:
+
+```php
+protected $middlewareGroups = [
+    'web' => [
+        \App\Http\Middleware\EncryptCookies::class,
+        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+        \Illuminate\Session\Middleware\StartSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        \App\Http\Middleware\VerifyCsrfToken::class,
+        \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    ],
+
+    'api' => [
+        'throttle:api',
+        \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        // Add ExportCsv middleware to all requests. "data" is the name of
+        // the key to retrieve using "dot" notation.
+        'csv:data',
+    ],
+];
+
+protected $routeMiddleware = [
+    'auth' => \App\Http\Middleware\Authenticate::class,
+    'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+    'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
+    'can' => \Illuminate\Auth\Middleware\Authorize::class,
+    'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+    'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
+    'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
+    'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+    'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+    'csv' => \audunru\ExportResponse\Middleware\ExportCsv::class,
+];
+```
+
 ## Step 3: Exporting a response
 
 In order to retrieve an API response as CSV instead of JSON, send a request to your API with the `Accept` header set to `text/csv`.
