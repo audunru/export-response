@@ -6,9 +6,9 @@ use audunru\ExportResponse\Tests\TestCase;
 
 class XmlTest extends TestCase
 {
-    public function testItGetsXml()
+    public function testItGetsXmlFromWrappedResponse()
     {
-        $response = $this->get('/documents', ['Accept' => 'application/xml']);
+        $response = $this->get('/wrapped', ['Accept' => 'application/xml']);
 
         $response
             ->assertStatus(200)

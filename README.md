@@ -53,7 +53,32 @@ Route::apiResource('documents', DocumentController::class)
     ->name('documents');
 ```
 
-In order to retrieve an API response as CSV instead of JSON, send a request to your API with the `Accept` header set to `text/csv`. For XML, set the header to `application/xml`.
+The `ExportCsv` middleware allows you to specify an array key which will be used to retrieve the data. "Dot" notation is supported.
+
+```php
+Route::apiResource('documents', DocumentController::class)
+    ->middleware([
+        ExportCsv::with([
+            'key' => 'data',
+        ]),
+        ExportXml::class
+    ])
+    ->name('documents');
+```
+
+## Step 3: Exporting a response
+
+In order to retrieve an API response as CSV instead of JSON, send a request to your API with the `Accept` header set to `text/csv`.
+
+For XML, set the header to `application/xml`.
+
+# Configuration
+
+Publish the configuration file by running:
+
+```php
+php artisan vendor:publish --tag=export-response-config
+```
 
 # Development
 

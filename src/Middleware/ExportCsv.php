@@ -7,14 +7,17 @@ use audunru\ExportResponse\Enums\MimeType;
 use Closure;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use TiMacDonald\Middleware\HasParameters;
 
 class ExportCsv
 {
+    use HasParameters;
+
     public function __construct(protected FilenameGeneratorContract $filenameGenerator)
     {
     }
 
-    public function handle(Request $request, Closure $next, string $key = 'data')
+    public function handle(Request $request, Closure $next, string $key = null)
     {
         $response = $next($request);
 
