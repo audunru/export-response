@@ -11,7 +11,8 @@ class CsvTest extends TestCase
         $response = $this->get('/documents', ['Accept' => 'text/csv']);
 
         $response
-            ->assertStatus(200);
+            ->assertStatus(200)
+            ->assertHeader('Content-Type', 'text/csv; charset=UTF-8');
 
         $this->assertEquals("attachment; filename=\"documents.csv\"; filename*=utf-8''documents.csv", $response->headers->get('Content-Disposition'));
         $this->assertEquals('id,name,data.foo,meta,data.bar
