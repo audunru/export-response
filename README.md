@@ -45,7 +45,12 @@ To support CSV and XML exports for all your API endpoints, add it to `Kernel.php
 To add it to one particular API resource, you can use this in `api.php`:
 
 ```php
-Route::apiResource('documents', DocumentController::class)->middleware([ExportCsv::class, ExportXml::class])->name('documents');
+Route::apiResource('documents', DocumentController::class)
+    ->middleware([
+        ExportCsv::class,
+        ExportXml::class
+    ])
+    ->name('documents');
 ```
 
 In order to retrieve an API response as CSV instead of JSON, send a request to your API with the `Accept` header set to `text/csv`. For XML, set the header to `application/xml`.
