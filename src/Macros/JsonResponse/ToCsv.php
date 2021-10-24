@@ -12,7 +12,7 @@ class ToCsv
     {
         return function (string $filename, string $key = 'data'): Response {
             $data = $this->getData(true);
-            $data = Arr::get($data, $key);
+            $data = Arr::get($data, $key) ?? $data;
             $collection = Arr::isAssoc($data) ? collect([$data]) : collect($data);
             $csv = $collection->flattenArrays()->toCsv();
 

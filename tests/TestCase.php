@@ -53,6 +53,28 @@ abstract class TestCase extends BaseTestCase
         parent::tearDown();
     }
 
+    public function getResponse(): JsonResponse
+    {
+        return new JsonResponse([
+            [
+                'id'   => 1,
+                'name' => 'Navn',
+                'data' => [
+                    'foo' => 'bar',
+                ],
+                'meta' => [],
+            ],
+            [
+                'id'   => 2,
+                'name' => 'Noe annet',
+                'data' => [
+                    'foo' => 'bar',
+                    'bar' => 'foo',
+                ],
+            ],
+        ]);
+    }
+
     public function getDataWrappedResponse(): JsonResponse
     {
         return new JsonResponse([
