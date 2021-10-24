@@ -29,7 +29,8 @@
     "php-coveralls/php-coveralls": "^2.2",
     "phpmd/phpmd": "^2.10",
     "phpunit/phpunit": "^8.5|^9.0",
-    "roave/security-advisories": "dev-latest"
+    "roave/security-advisories": "dev-latest",
+    "spatie/array-to-xml": "^3.1"
   },
   "config": {
     "optimize-autoloader": true,

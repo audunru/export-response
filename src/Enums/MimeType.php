@@ -6,6 +6,7 @@ use Spatie\Enum\Enum;
 
 /**
  * @method static self Csv()
+ * @method static self Xml()
  */
 class MimeType extends Enum
 {
@@ -13,6 +14,7 @@ class MimeType extends Enum
     {
         return [
             'Csv' => 'text/csv',
+            'Xml' => 'application/xml',
         ];
     }
 }
