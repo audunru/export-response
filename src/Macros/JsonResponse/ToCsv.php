@@ -10,9 +10,9 @@ class ToCsv
 {
     public function __invoke()
     {
-        return function (string $filename, string $key = 'data'): Response {
+        return function (string $filename, string $key = null): Response {
             $data = $this->getData(true);
-            $data = Arr::get($data, $key);
+            $data = ! is_null($key) ? Arr::get($data, $key) : $data;
             $collection = Arr::isAssoc($data) ? collect([$data]) : collect($data);
             $csv = $collection->flattenArrays()->toCsv();
 

@@ -12,7 +12,7 @@ use Illuminate\Routing\Route;
 
 class FilenameGeneratorTest extends TestCase
 {
-    public function testIt()
+    public function testItGeneratesAFilename()
     {
         Response::macro('filename', app(Filename::class)());
 
@@ -33,5 +33,48 @@ class FilenameGeneratorTest extends TestCase
         $filename = $generator->get($request, $response);
 
         $this->assertEquals('documents.csv', $filename);
+    }
+
+    public function testItUsesADefaultNameWhenRouteHasNoName()
+    {
+        Response::macro('filename', app(Filename::class)());
+
+        $request = new Request();
+        $routeResolver = function () {
+            $route = new Route('GET', '/test', ['index']);
+
+            return $route;
+        };
+        $request->setRouteResolver($routeResolver);
+        $request->headers->set('Accept', 'text/csv');
+
+        $response = new JsonResponse();
+
+        $generator = new FilenameGenerator();
+
+        $filename = $generator->get($request, $response);
+
+        $this->assertEquals('export.csv', $filename);
+    }
+
+    public function testItUsesADefaultNameWhenRouteHasNoNameAndExtensionCannotBeFound()
+    {
+        Response::macro('filename', app(Filename::class)());
+
+        $request = new Request();
+        $routeResolver = function () {
+            $route = new Route('GET', '/test', ['index']);
+
+            return $route;
+        };
+        $request->setRouteResolver($routeResolver);
+
+        $response = new JsonResponse();
+
+        $generator = new FilenameGenerator();
+
+        $filename = $generator->get($request, $response);
+
+        $this->assertEquals('export', $filename);
     }
 }

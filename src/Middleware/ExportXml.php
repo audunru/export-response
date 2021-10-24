@@ -7,12 +7,9 @@ use audunru\ExportResponse\Enums\MimeType;
 use Closure;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use TiMacDonald\Middleware\HasParameters;
 
-class ExportCsv
+class ExportXml
 {
-    use HasParameters;
-
     /**
      * @SuppressWarnings("unused")
      */
@@ -20,14 +17,14 @@ class ExportCsv
     {
     }
 
-    public function handle(Request $request, Closure $next, string $key = null)
+    public function handle(Request $request, Closure $next)
     {
         $response = $next($request);
 
-        if ($request->wants(MimeType::Csv()) && $response instanceof JsonResponse) {
+        if ($request->wants(MimeType::Xml()) && $response instanceof JsonResponse) {
             $filename = $this->filenameGenerator->get($request, $response);
 
-            return $response->toCsv($filename, $key);
+            return $response->toXml($filename);
         }
 
         return $response;

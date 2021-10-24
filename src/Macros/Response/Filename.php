@@ -8,8 +8,8 @@ class Filename
 {
     public function __invoke()
     {
-        return function (string $filename): Response {
-            return $this->header('Content-Disposition', sprintf('attachment; filename="%s"; filename*=utf-8\'\'%s', $filename, urlencode($filename)));
+        return function (string $filename, string $filenameStar = null): Response {
+            return $this->header('Content-Disposition', sprintf('attachment; filename="%s"; filename*=utf-8\'\'%s', $filename, urlencode($filenameStar ?? $filename)));
         };
     }
 }

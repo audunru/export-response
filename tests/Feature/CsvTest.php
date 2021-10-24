@@ -6,12 +6,13 @@ use audunru\ExportResponse\Tests\TestCase;
 
 class CsvTest extends TestCase
 {
-    public function testItGetsCsv()
+    public function testItGetsCsvFromUnwrappedResponse()
     {
-        $response = $this->get('/documents', ['Accept' => 'text/csv']);
+        $response = $this->get('/unwrapped', ['Accept' => 'text/csv']);
 
         $response
-            ->assertStatus(200);
+            ->assertStatus(200)
+            ->assertHeader('Content-Type', 'text/csv; charset=UTF-8');
 
         $this->assertEquals("attachment; filename=\"documents.csv\"; filename*=utf-8''documents.csv", $response->headers->get('Content-Disposition'));
         $this->assertEquals('id,name,data.foo,meta,data.bar
@@ -20,29 +21,18 @@ class CsvTest extends TestCase
 ', $response->getContent());
     }
 
-    public function testItGetsJson()
+    public function testItGetsCsvFromWrappedResponse()
     {
-        $response = $this->get('/documents', ['Accept' => '	application/json']);
+        $response = $this->get('/wrapped', ['Accept' => 'text/csv']);
 
         $response
             ->assertStatus(200)
-            ->assertJson(['data' => [
-                [
-                    'id'   => 1,
-                    'name' => 'Navn',
-                    'data' => [
-                        'foo' => 'bar',
-                    ],
-                    'meta' => [],
-                ],
-                [
-                    'id'   => 2,
-                    'name' => 'Noe annet',
-                    'data' => [
-                        'foo' => 'bar',
-                        'bar' => 'foo',
-                    ],
-                ],
-            ]]);
+            ->assertHeader('Content-Type', 'text/csv; charset=UTF-8');
+
+        $this->assertEquals("attachment; filename=\"documents.csv\"; filename*=utf-8''documents.csv", $response->headers->get('Content-Disposition'));
+        $this->assertEquals('id,name,data.foo,meta,data.bar
+1,Navn,bar,,
+2,"Noe annet",bar,,foo
+', $response->getContent());
     }
 }
