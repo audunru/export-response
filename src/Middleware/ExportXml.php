@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 
 class ExportXml
 {
+    /**
+     * @SuppressWarnings("unused")
+     */
     public function __construct(protected FilenameGeneratorContract $filenameGenerator)
     {
     }

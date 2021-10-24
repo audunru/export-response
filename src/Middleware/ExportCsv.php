@@ -13,6 +13,9 @@ class ExportCsv
 {
     use HasParameters;
 
+    /**
+     * @SuppressWarnings("unused")
+     */
     public function __construct(protected FilenameGeneratorContract $filenameGenerator)
     {
     }
