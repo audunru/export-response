@@ -132,6 +132,8 @@ class ProductController extends Controller
     }
 ```
 
+Please use lazy collections when you can. During testing, using `Product::lazy()` to export 10,000 products took about 2MB of memory, compared to 44 MB of memory using `Product::all()`. Both exports took the same amount of time (around 45 seconds).
+
 ## Step 3: Exporting a response
 
 In order to retrieve an API response as CSV instead of JSON, send a request to your API with the `Accept` header set to `text/csv`.
