@@ -1,4 +1,4 @@
-# Export JSON responses from Laravel to CSV
+# Export JSON responses from Laravel
 
 [![Build Status](https://app.travis-ci.com/audunru/export-response.svg?branch=master)](https://app.travis-ci.com/audunru/export-response)
 [![Coverage Status](https://coveralls.io/repos/github/audunru/export-response/badge.svg?branch=master)](https://coveralls.io/github/audunru/export-response?branch=master)
