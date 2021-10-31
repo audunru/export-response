@@ -2,23 +2,21 @@
 
 namespace audunru\ExportResponse\Macros\Collection;
 
-use League\Csv\Writer;
-use SplTempFileObject;
+use Spatie\SimpleExcel\SimpleExcelWriter;
 
 class ToCsv
 {
     public function __invoke()
     {
         return function (): string {
-            $csv = Writer::createFromFileObject(new SplTempFileObject());
-            $header = array_keys($this->first());
-            $csv->insertOne($header);
+            ob_start();
+            SimpleExcelWriter::createWithoutBom('php://output', 'csv')
+                ->addRows($this->flattenArrays()->toArray())
+                ->close();
+            $csv = ob_get_contents();
+            ob_end_clean();
 
-            $this->each(function (array $row) use ($csv) {
-                $csv->insertOne($row);
-            });
-
-            return $csv->toString();
+            return $csv;
         };
     }
 }

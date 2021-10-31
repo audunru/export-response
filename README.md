@@ -22,7 +22,7 @@ Depending on which formats you want to export to, you will have to install addit
 
 | Format | Package                                                       |
 | ------ | ------------------------------------------------------------- |
-| CSV    | [league/csv](https://csv.thephpleague.com/)                   |
+| CSV    | [spatie/simple-excel](https://github.com/spatie/simple-excel) |
 | XLSX   | [spatie/simple-excel](https://github.com/spatie/simple-excel) |
 | XML    | [spatie/array-to-xml](https://github.com/spatie/array-to-xml) |
 
