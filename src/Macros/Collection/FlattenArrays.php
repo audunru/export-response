@@ -3,13 +3,13 @@
 namespace audunru\ExportResponse\Macros\Collection;
 
 use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
+use Illuminate\Support\Enumerable;
 
 class FlattenArrays
 {
     public function __invoke()
     {
-        return function (): Collection {
+        return function (): Enumerable {
             $replaceIfEmpty = function (mixed $value, mixed $replace = null) {
                 return empty($value) ? $replace : $value;
             };

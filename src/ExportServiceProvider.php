@@ -8,6 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
+use Illuminate\Support\LazyCollection;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -28,6 +29,9 @@ class ExportServiceProvider extends PackageServiceProvider
         Collection::make(config('export-response.macros.collection'))
             ->reject(fn ($class, $macro) => Collection::hasMacro($macro))
             ->each(fn ($class, $macro) => Collection::macro($macro, app($class)()));
+        Collection::make(config('export-response.macros.collection'))
+            ->reject(fn ($class, $macro) => LazyCollection::hasMacro($macro))
+            ->each(fn ($class, $macro) => LazyCollection::macro($macro, app($class)()));
         Collection::make(config('export-response.macros.request'))
             ->reject(fn ($class, $macro) => Request::hasMacro($macro))
             ->each(fn ($class, $macro) => Request::macro($macro, app($class)()));
