@@ -8,6 +8,7 @@ use audunru\ExportResponse\Middleware\ExportXlsx;
 use audunru\ExportResponse\Middleware\ExportXml;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\LazyCollection;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Spatie\SimpleExcel\SimpleExcelReader;
 
@@ -49,6 +50,14 @@ abstract class TestCase extends BaseTestCase
             ]),
             ExportXml::class,
         ])->name('documents');
+
+        $router->get('/lazycsv', function () {
+            return $this->getLazyResponse()->toCsv('lazy.csv');
+        });
+
+        $router->get('/lazyxlsx', function () {
+            return $this->getLazyResponse()->toXlsx('lazy.xlsx');
+        });
     }
 
     /**
@@ -116,6 +125,15 @@ abstract class TestCase extends BaseTestCase
                 ],
             ],
         ]);
+    }
+
+    protected function getLazyResponse(): LazyCollection
+    {
+        return LazyCollection::make(function () {
+            for ($id = 1; $id <= 1000; ++$id) {
+                yield ['id' => $id, 'name' => 'Navn', 'data' => ['foo' => 'bar'], 'meta' => []];
+            }
+        });
     }
 
     protected function getExcelReader(string $content): SimpleExcelReader
