@@ -18,7 +18,7 @@ class CsvTest extends TestCase
         $this->assertEquals('id,name,data.foo,meta,data.bar
 1,Navn,bar,,
 2,"Noe annet",bar,,foo
-', $response->getContent());
+', $response->streamedContent());
     }
 
     public function testItGetsCsvFromWrappedResponse()
@@ -33,6 +33,6 @@ class CsvTest extends TestCase
         $this->assertEquals('id,name,data.foo,meta,data.bar
 1,Navn,bar,,
 2,"Noe annet",bar,,foo
-', $response->getContent());
+', $response->streamedContent());
     }
 }

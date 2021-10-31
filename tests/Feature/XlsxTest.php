@@ -18,7 +18,7 @@ class XlsxTest extends TestCase
 
         $this->assertEquals("attachment; filename=\"documents.xlsx\"; filename*=utf-8''documents.xlsx", $response->headers->get('Content-Disposition'));
 
-        $reader = $this->getExcelReader($response->getContent());
+        $reader = $this->getExcelReader($response->streamedContent());
         $headers = $reader->getHeaders();
         $rows = $reader->getRows()->toArray();
 
@@ -50,7 +50,7 @@ class XlsxTest extends TestCase
 
         $this->assertEquals("attachment; filename=\"documents.xlsx\"; filename*=utf-8''documents.xlsx", $response->headers->get('Content-Disposition'));
 
-        $reader = $this->getExcelReader($response->getContent());
+        $reader = $this->getExcelReader($response->streamedContent());
         $headers = $reader->getHeaders();
         $rows = $reader->getRows()->toArray();
 
