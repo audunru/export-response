@@ -28,7 +28,7 @@ Depending on which formats you want to export to, you will have to install addit
 
 ## Step 2: Add middleware to your routes
 
-To support CSV and XML exports for all your API endpoints, add it to `Kernel.php`:
+To allow exports for all your API endpoints, add middleware to `Kernel.php`:
 
 ```php
 'api' => [
@@ -102,6 +102,34 @@ protected $routeMiddleware = [
     'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     'csv' => \audunru\ExportResponse\Middleware\ExportCsv::class,
 ];
+```
+
+### Exporting from controller
+
+Instead of using middleware, you can perform the export in the controller:
+
+```php
+class ProductController extends Controller
+{
+    public function csv()
+    {
+        $products = Product::all();
+
+        return $products->toCsv('filename.csv');
+    }
+```
+
+Lazy collections are also supported:
+
+```php
+class ProductController extends Controller
+{
+    public function csv()
+    {
+        $products = Product::lazy();
+
+        return $products->toCsv('filename.csv');
+    }
 ```
 
 ## Step 3: Exporting a response

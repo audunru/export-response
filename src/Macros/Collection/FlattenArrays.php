@@ -2,6 +2,7 @@
 
 namespace audunru\ExportResponse\Macros\Collection;
 
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Enumerable;
 
@@ -15,6 +16,9 @@ class FlattenArrays
             };
 
             $items = $this->map(function (mixed $item) use ($replaceIfEmpty) {
+                if ($item instanceof Arrayable) {
+                    $item = $item->toArray();
+                }
                 if (is_array($item)) {
                     return array_map($replaceIfEmpty, Arr::dot($item));
                 }
