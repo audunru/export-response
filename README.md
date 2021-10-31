@@ -52,7 +52,7 @@ Route::apiResource('documents', DocumentController::class)
     ->name('documents');
 ```
 
-The `ExportCsv` and `ExportXlsx` middlewares allows you to specify an array key which will be used to retrieve the data. "Dot" notation is supported.
+You can specify an array key which will be used to retrieve the data. "Dot" notation is supported.
 
 ```php
 Route::apiResource('documents', DocumentController::class)
@@ -63,7 +63,9 @@ Route::apiResource('documents', DocumentController::class)
         ExportXlsx::with([
             'key' => 'data',
         ]),
-        ExportXml::class
+        ExportXml::class::with([
+            'key' => 'data',
+        ]),
     ])
     ->name('documents');
 ```

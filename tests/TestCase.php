@@ -124,6 +124,9 @@ abstract class TestCase extends BaseTestCase
                     ],
                 ],
             ],
+            'meta' => [
+                'page' => 1,
+            ],
         ]);
     }
 

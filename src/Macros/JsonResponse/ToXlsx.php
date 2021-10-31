@@ -11,7 +11,9 @@ class ToXlsx
     {
         return function (string $filename, string $key = null): StreamedResponse {
             $data = $this->getData(true);
-            $data = ! is_null($key) ? Arr::get($data, $key) : $data;
+            if (! is_null($key)) {
+                $data = Arr::get($data, $key);
+            }
             $collection = Arr::isAssoc($data) ? collect([$data]) : collect($data);
 
             return $collection->toXlsx($filename);

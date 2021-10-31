@@ -16,7 +16,7 @@ class XmlTest extends TestCase
 
         $this->assertEquals("attachment; filename=\"documents.xml\"; filename*=utf-8''documents.xml", $response->headers->get('Content-Disposition'));
         $this->assertEquals('<?xml version="1.0"?>
-<root><data><id>1</id><name>Navn</name><data><foo>bar</foo></data><meta/></data><data><id>2</id><name>Noe annet</name><data><foo>bar</foo><bar>foo</bar></data></data></root>
+<root><data><id>1</id><name>Navn</name><data><foo>bar</foo></data><meta/></data><data><id>2</id><name>Noe annet</name><data><foo>bar</foo><bar>foo</bar></data></data><meta><page>1</page></meta></root>
 ', $response->getContent());
     }
 }
