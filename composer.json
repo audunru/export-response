@@ -31,7 +31,8 @@
     "phpmd/phpmd": "^2.10",
     "phpunit/phpunit": "^8.5|^9.0",
     "roave/security-advisories": "dev-latest",
-    "spatie/array-to-xml": "^3.1"
+    "spatie/array-to-xml": "^3.1",
+    "spatie/simple-excel": "^1.14"
   },
   "config": {
     "optimize-autoloader": true,

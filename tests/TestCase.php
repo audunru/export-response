@@ -4,6 +4,7 @@ namespace audunru\ExportResponse\Tests;
 
 use audunru\ExportResponse\ExportServiceProvider;
 use audunru\ExportResponse\Middleware\ExportCsv;
+use audunru\ExportResponse\Middleware\ExportXlsx;
 use audunru\ExportResponse\Middleware\ExportXml;
 use Illuminate\Http\JsonResponse;
 use Orchestra\Testbench\TestCase as BaseTestCase;
@@ -31,6 +32,7 @@ abstract class TestCase extends BaseTestCase
             return $this->getUnwrappedResponse();
         })->middleware([
             ExportCsv::class,
+            ExportXlsx::class,
             ExportXml::class,
         ])->name('documents');
 
@@ -38,6 +40,9 @@ abstract class TestCase extends BaseTestCase
             return $this->getWrappedResponse();
         })->middleware([
             ExportCsv::with([
+                'key' => 'data',
+            ]),
+            ExportXlsx::with([
                 'key' => 'data',
             ]),
             ExportXml::class,

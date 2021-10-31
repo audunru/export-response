@@ -3,6 +3,7 @@
 use audunru\ExportResponse\Macros\Collection\FlattenArrays;
 use audunru\ExportResponse\Macros\Collection\ToCsv;
 use audunru\ExportResponse\Macros\JsonResponse\ToCsv as JsonResponseToCsv;
+use audunru\ExportResponse\Macros\JsonResponse\ToXlsx as JsonResponseToXlsx;
 use audunru\ExportResponse\Macros\JsonResponse\ToXml as JsonResponseToXml;
 use audunru\ExportResponse\Macros\Request\Wants;
 use audunru\ExportResponse\Macros\Response\Filename;
@@ -23,8 +24,9 @@ return [
             'toCsv'         => ToCsv::class,
         ],
         'json-response' => [
-            'toCsv' => JsonResponseToCsv::class,
-            'toXml' => JsonResponseToXml::class,
+            'toCsv'  => JsonResponseToCsv::class,
+            'toXlsx' => JsonResponseToXlsx::class,
+            'toXml'  => JsonResponseToXml::class,
         ],
         'response' => [
             'filename' => Filename::class,
