@@ -3,9 +3,7 @@
 namespace audunru\ExportResponse\Tests\Unit;
 
 use audunru\ExportResponse\Macros\Collection\FlattenArrays;
-use audunru\ExportResponse\Macros\Collection\ToCsv;
 use audunru\ExportResponse\Tests\TestCase;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
 
 class JsonResponseToCsvTest extends TestCase
@@ -13,8 +11,6 @@ class JsonResponseToCsvTest extends TestCase
     public function testItGeneratesCsvFromUnwrappedResponse()
     {
         Collection::macro('flattenArrays', app(FlattenArrays::class)());
-        Collection::macro('toCsv', app(ToCsv::class)());
-        JsonResponse::macro('JsonResponseToCsv', app(ToCsv::class)());
 
         $response = $this->getUnwrappedResponse()->toCsv('filename.csv');
 
@@ -28,8 +24,6 @@ class JsonResponseToCsvTest extends TestCase
     public function testItGeneratesCsvFromWrappedResponse()
     {
         Collection::macro('flattenArrays', app(FlattenArrays::class)());
-        Collection::macro('toCsv', app(ToCsv::class)());
-        JsonResponse::macro('JsonResponseToCsv', app(ToCsv::class)());
 
         $response = $this->getWrappedResponse()->toCsv('filename.csv', 'data');
 

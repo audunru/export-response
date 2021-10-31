@@ -1,7 +1,6 @@
 <?php
 
 use audunru\ExportResponse\Macros\Collection\FlattenArrays;
-use audunru\ExportResponse\Macros\Collection\ToCsv;
 use audunru\ExportResponse\Macros\JsonResponse\ToCsv as JsonResponseToCsv;
 use audunru\ExportResponse\Macros\JsonResponse\ToXlsx as JsonResponseToXlsx;
 use audunru\ExportResponse\Macros\JsonResponse\ToXml as JsonResponseToXml;
@@ -21,7 +20,6 @@ return [
     'macros' => [
         'collection' => [
             'flattenArrays' => FlattenArrays::class,
-            'toCsv'         => ToCsv::class,
         ],
         'json-response' => [
             'toCsv'  => JsonResponseToCsv::class,
