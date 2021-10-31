@@ -16,17 +16,11 @@ class ToXlsx
             $data = ! is_null($key) ? Arr::get($data, $key) : $data;
             $collection = Arr::isAssoc($data) ? collect([$data]) : collect($data);
 
-            return (new StreamedResponse(
-                function () use ($collection) {
-                    SimpleExcelWriter::create('php://output', 'xlsx')
-                        ->addRows($collection->flattenArrays())
-                        ->close();
-                },
-                StreamedResponse::HTTP_OK,
-                [
-                    'Content-Type'        => MimeType::Xlsx(),
-                ]
-            ))->filename($filename);
+            return ( new StreamedResponse(function () use ($collection) {
+                SimpleExcelWriter::create('php://output', 'xlsx')
+                    ->addRows($collection->flattenArrays())
+                    ->close();
+            }))->filename($filename)->contentType(MimeType::Xlsx());
         };
     }
 }

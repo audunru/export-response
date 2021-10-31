@@ -5,6 +5,7 @@ use audunru\ExportResponse\Macros\JsonResponse\ToCsv as JsonResponseToCsv;
 use audunru\ExportResponse\Macros\JsonResponse\ToXlsx as JsonResponseToXlsx;
 use audunru\ExportResponse\Macros\JsonResponse\ToXml as JsonResponseToXml;
 use audunru\ExportResponse\Macros\Request\Wants;
+use audunru\ExportResponse\Macros\Response\ContentType;
 use audunru\ExportResponse\Macros\Response\Filename;
 use audunru\ExportResponse\Services\FilenameGenerator;
 
@@ -27,7 +28,8 @@ return [
             'toXml'  => JsonResponseToXml::class,
         ],
         'response' => [
-            'filename' => Filename::class,
+            'contentType' => ContentType::class,
+            'filename'    => Filename::class,
         ],
         'request' => [
             'wants' => Wants::class,

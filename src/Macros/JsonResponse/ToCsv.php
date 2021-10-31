@@ -16,17 +16,11 @@ class ToCsv
             $data = ! is_null($key) ? Arr::get($data, $key) : $data;
             $collection = Arr::isAssoc($data) ? collect([$data]) : collect($data);
 
-            return ( new StreamedResponse(
-                function () use ($collection) {
-                    SimpleExcelWriter::createWithoutBom('php://output', 'csv')
-                        ->addRows($collection->flattenArrays())
-                        ->close();
-                },
-                StreamedResponse::HTTP_OK,
-                [
-                    'Content-Type'        => MimeType::Csv(),
-                ]
-            ))->filename($filename);
+            return ( new StreamedResponse(function () use ($collection) {
+                SimpleExcelWriter::createWithoutBom('php://output', 'csv')
+                    ->addRows($collection->flattenArrays())
+                    ->close();
+            }))->filename($filename)->contentType(MimeType::Csv());
         };
     }
 }
