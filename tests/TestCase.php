@@ -7,7 +7,9 @@ use audunru\ExportResponse\Middleware\ExportCsv;
 use audunru\ExportResponse\Middleware\ExportXlsx;
 use audunru\ExportResponse\Middleware\ExportXml;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\File;
 use Orchestra\Testbench\TestCase as BaseTestCase;
+use Spatie\SimpleExcel\SimpleExcelReader;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -70,7 +72,7 @@ abstract class TestCase extends BaseTestCase
         parent::tearDown();
     }
 
-    public function getUnwrappedResponse(): JsonResponse
+    protected function getUnwrappedResponse(): JsonResponse
     {
         return new JsonResponse([
             [
@@ -92,7 +94,7 @@ abstract class TestCase extends BaseTestCase
         ]);
     }
 
-    public function getWrappedResponse(): JsonResponse
+    protected function getWrappedResponse(): JsonResponse
     {
         return new JsonResponse([
             'data' => [
@@ -114,5 +116,13 @@ abstract class TestCase extends BaseTestCase
                 ],
             ],
         ]);
+    }
+
+    protected function getExcelReader(string $content): SimpleExcelReader
+    {
+        $filename = tempnam(sys_get_temp_dir(), '');
+        File::put($filename, $content);
+
+        return SimpleExcelReader::create($filename, 'xlsx');
     }
 }

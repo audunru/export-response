@@ -1,20 +1,21 @@
 <?php
 
-namespace audunru\ExportResponse\Tests\Feature;
+namespace audunru\ExportResponse\Tests\Unit;
 
+use audunru\ExportResponse\Macros\Collection\FlattenArrays;
 use audunru\ExportResponse\Tests\TestCase;
+use Illuminate\Support\Collection;
+use Illuminate\Testing\TestResponse;
 
-class XlsxTest extends TestCase
+class JsonResponseToXlsxTest extends TestCase
 {
-    public function testItGetsXlsxFromUnwrappedResponse()
+    public function testItGeneratesCsvFromUnwrappedResponse()
     {
-        $response = $this->get('/unwrapped', ['Accept' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']);
+        Collection::macro('flattenArrays', app(FlattenArrays::class)());
 
-        $response
-            ->assertStatus(200)
-            ->assertHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        $response = new TestResponse($this->getUnwrappedResponse()->toXlsx('filename.xlsx'));
 
-        $this->assertEquals("attachment; filename=\"documents.xlsx\"; filename*=utf-8''documents.xlsx", $response->headers->get('Content-Disposition'));
+        $this->assertEquals("attachment; filename=\"filename.xlsx\"; filename*=utf-8''filename.xlsx", $response->headers->get('Content-Disposition'));
 
         $reader = $this->getExcelReader($response->streamedContent());
         $headers = $reader->getHeaders();
@@ -38,15 +39,13 @@ class XlsxTest extends TestCase
         ], $rows[1]);
     }
 
-    public function testItGetsXlsxFromWrappedResponse()
+    public function testItGeneratesCsvFromWrappedResponse()
     {
-        $response = $this->get('/wrapped', ['Accept' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']);
+        Collection::macro('flattenArrays', app(FlattenArrays::class)());
 
-        $response
-            ->assertStatus(200)
-            ->assertHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        $response = new TestResponse($this->getWrappedResponse()->toXlsx('filename.xlsx', 'data'));
 
-        $this->assertEquals("attachment; filename=\"documents.xlsx\"; filename*=utf-8''documents.xlsx", $response->headers->get('Content-Disposition'));
+        $this->assertEquals("attachment; filename=\"filename.xlsx\"; filename*=utf-8''filename.xlsx", $response->headers->get('Content-Disposition'));
 
         $reader = $this->getExcelReader($response->streamedContent());
         $headers = $reader->getHeaders();
