@@ -7,7 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Arr;
 use Spatie\SimpleExcel\SimpleExcelWriter;
 
-class ToCsv
+class ToXlsx
 {
     public function __invoke()
     {
@@ -17,14 +17,14 @@ class ToCsv
             $collection = Arr::isAssoc($data) ? collect([$data]) : collect($data);
 
             ob_start();
-            SimpleExcelWriter::createWithoutBom('php://output', 'csv')
+            SimpleExcelWriter::create('php://output', 'xlsx')
                 ->addRows($collection->flattenArrays()->toArray())
                 ->close();
-            $csv = ob_get_contents();
+            $xlsx = ob_get_contents();
             ob_end_clean();
 
-            return (new Response($csv, Response::HTTP_OK, [
-                'Content-Type' => MimeType::Csv(),
+            return (new Response($xlsx, Response::HTTP_OK, [
+                'Content-Type' => MimeType::Xlsx(),
             ]))->filename($filename);
         };
     }

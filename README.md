@@ -7,6 +7,7 @@
 Currently supported:
 
 - CSV
+- XLSX
 - XML
 
 # Installation
@@ -17,17 +18,13 @@ Currently supported:
 composer require audunru/export-response
 ```
 
-This package depends on [league/csv](https://csv.thephpleague.com/). You will have to install this separately if you want to export to CSV:
+Depending on which formats you want to export to, you will have to install additional packages:
 
-```bash
-composer require league/csv
-```
-
-This package depends on [spatie/array-to-xml](https://github.com/spatie/array-to-xml). You will have to install this separately if you want to export to XML:
-
-```bash
-composer require spatie/array-to-xml
-```
+| Format | Package                                                       |
+| ------ | ------------------------------------------------------------- |
+| CSV    | [spatie/simple-excel](https://github.com/spatie/simple-excel) |
+| XLSX   | [spatie/simple-excel](https://github.com/spatie/simple-excel) |
+| XML    | [spatie/array-to-xml](https://github.com/spatie/array-to-xml) |
 
 ## Step 2: Add middleware to your routes
 
@@ -38,6 +35,7 @@ To support CSV and XML exports for all your API endpoints, add it to `Kernel.php
     'throttle:api',
     \Illuminate\Routing\Middleware\SubstituteBindings::class,
     \audunru\ExportResponse\Middleware\ExportCsv::class,
+    \audunru\ExportResponse\Middleware\ExportXlsx::class,
     \audunru\ExportResponse\Middleware\ExportXml::class,
 ],
 ```
@@ -48,17 +46,21 @@ To add it to one particular API resource, you can use this in `api.php`:
 Route::apiResource('documents', DocumentController::class)
     ->middleware([
         ExportCsv::class,
+        ExportXlsx::class,
         ExportXml::class
     ])
     ->name('documents');
 ```
 
-The `ExportCsv` middleware allows you to specify an array key which will be used to retrieve the data. "Dot" notation is supported.
+The `ExportCsv` and `ExportXlsx` middlewares allows you to specify an array key which will be used to retrieve the data. "Dot" notation is supported.
 
 ```php
 Route::apiResource('documents', DocumentController::class)
     ->middleware([
         ExportCsv::with([
+            'key' => 'data',
+        ]),
+        ExportXlsx::with([
             'key' => 'data',
         ]),
         ExportXml::class
@@ -107,6 +109,8 @@ protected $routeMiddleware = [
 In order to retrieve an API response as CSV instead of JSON, send a request to your API with the `Accept` header set to `text/csv`.
 
 For XML, set the header to `application/xml`.
+
+For XLSX, set the header to `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`.
 
 # Configuration
 
