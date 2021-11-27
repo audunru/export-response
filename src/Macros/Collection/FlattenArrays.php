@@ -2,19 +2,23 @@
 
 namespace audunru\ExportResponse\Macros\Collection;
 
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
+use Illuminate\Support\Enumerable;
 
 class FlattenArrays
 {
     public function __invoke()
     {
-        return function (): Collection {
+        return function (): Enumerable {
             $replaceIfEmpty = function (mixed $value, mixed $replace = null) {
                 return empty($value) ? $replace : $value;
             };
 
             $items = $this->map(function (mixed $item) use ($replaceIfEmpty) {
+                if ($item instanceof Arrayable) {
+                    $item = $item->toArray();
+                }
                 if (is_array($item)) {
                     return array_map($replaceIfEmpty, Arr::dot($item));
                 }

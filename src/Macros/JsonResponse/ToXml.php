@@ -11,8 +11,11 @@ class ToXml
 {
     public function __invoke()
     {
-        return function (string $filename): Response {
+        return function (string $filename, string $key = null): Response {
             $data = $this->getData(true);
+            if (! is_null($key)) {
+                $data = Arr::get($data, $key);
+            }
             $data = Arr::isAssoc($data) ? $data : ['data' => $data];
             $xml = ArrayToXml::convert($data);
 

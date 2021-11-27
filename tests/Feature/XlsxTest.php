@@ -3,8 +3,6 @@
 namespace audunru\ExportResponse\Tests\Feature;
 
 use audunru\ExportResponse\Tests\TestCase;
-use Illuminate\Support\Facades\File;
-use Spatie\SimpleExcel\SimpleExcelReader;
 
 class XlsxTest extends TestCase
 {
@@ -18,7 +16,7 @@ class XlsxTest extends TestCase
 
         $this->assertEquals("attachment; filename=\"documents.xlsx\"; filename*=utf-8''documents.xlsx", $response->headers->get('Content-Disposition'));
 
-        $reader = $this->getExcelReader($response->getContent());
+        $reader = $this->getExcelReader($response->streamedContent());
         $headers = $reader->getHeaders();
         $rows = $reader->getRows()->toArray();
 
@@ -50,7 +48,7 @@ class XlsxTest extends TestCase
 
         $this->assertEquals("attachment; filename=\"documents.xlsx\"; filename*=utf-8''documents.xlsx", $response->headers->get('Content-Disposition'));
 
-        $reader = $this->getExcelReader($response->getContent());
+        $reader = $this->getExcelReader($response->streamedContent());
         $headers = $reader->getHeaders();
         $rows = $reader->getRows()->toArray();
 
@@ -72,11 +70,32 @@ class XlsxTest extends TestCase
         ], $rows[1]);
     }
 
-    private function getExcelReader(string $content): SimpleExcelReader
+    public function testItGetsXlsxFromLazyCollection()
     {
-        $filename = tempnam(sys_get_temp_dir(), '');
-        File::put($filename, $content);
+        $response = $this->get('/lazyxlsx', ['Accept' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']);
 
-        return SimpleExcelReader::create($filename, 'xlsx');
+        $response
+            ->assertStatus(200)
+            ->assertHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+
+        $this->assertEquals("attachment; filename=\"lazy.xlsx\"; filename*=utf-8''lazy.xlsx", $response->headers->get('Content-Disposition'));
+        $reader = $this->getExcelReader($response->streamedContent());
+        $headers = $reader->getHeaders();
+        $rows = $reader->getRows()->toArray();
+
+        $this->assertEquals(['id', 'name', 'data.foo', 'meta'], $headers);
+        $this->assertEquals(1000, count($rows));
+        $this->assertEquals([
+            'id'       => 1,
+            'name'     => 'Navn',
+            'data.foo' => 'bar',
+            'meta'     => '',
+        ], $rows[0]);
+        $this->assertEquals([
+            'id'       => 1000,
+            'name'     => 'Navn',
+            'data.foo' => 'bar',
+            'meta'     => '',
+        ], $rows[999]);
     }
 }

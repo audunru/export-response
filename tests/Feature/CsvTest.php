@@ -18,7 +18,7 @@ class CsvTest extends TestCase
         $this->assertEquals('id,name,data.foo,meta,data.bar
 1,Navn,bar,,
 2,"Noe annet",bar,,foo
-', $response->getContent());
+', $response->streamedContent());
     }
 
     public function testItGetsCsvFromWrappedResponse()
@@ -33,6 +33,21 @@ class CsvTest extends TestCase
         $this->assertEquals('id,name,data.foo,meta,data.bar
 1,Navn,bar,,
 2,"Noe annet",bar,,foo
-', $response->getContent());
+', $response->streamedContent());
+    }
+
+    public function testItGetsCsvFromLazyCollection()
+    {
+        $response = $this->get('/lazycsv', ['Accept' => 'text/csv']);
+
+        $response
+            ->assertStatus(200)
+            ->assertHeader('Content-Type', 'text/csv; charset=UTF-8');
+
+        $this->assertEquals("attachment; filename=\"lazy.csv\"; filename*=utf-8''lazy.csv", $response->headers->get('Content-Disposition'));
+        $content = array_filter(explode("\n", $response->streamedContent()));
+        $this->assertEquals(1001, count($content));
+        $this->assertEquals('id,name,data.foo,meta', $content[0]);
+        $this->assertEquals('1,Navn,bar,', $content[1]);
     }
 }

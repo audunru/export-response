@@ -28,7 +28,7 @@ Depending on which formats you want to export to, you will have to install addit
 
 ## Step 2: Add middleware to your routes
 
-To support CSV and XML exports for all your API endpoints, add it to `Kernel.php`:
+To allow exports for all your API endpoints, add middleware to `Kernel.php`:
 
 ```php
 'api' => [
@@ -52,7 +52,7 @@ Route::apiResource('documents', DocumentController::class)
     ->name('documents');
 ```
 
-The `ExportCsv` and `ExportXlsx` middlewares allows you to specify an array key which will be used to retrieve the data. "Dot" notation is supported.
+You can specify an array key which will be used to retrieve the data. "Dot" notation is supported.
 
 ```php
 Route::apiResource('documents', DocumentController::class)
@@ -63,7 +63,9 @@ Route::apiResource('documents', DocumentController::class)
         ExportXlsx::with([
             'key' => 'data',
         ]),
-        ExportXml::class
+        ExportXml::class::with([
+            'key' => 'data',
+        ]),
     ])
     ->name('documents');
 ```
@@ -103,6 +105,36 @@ protected $routeMiddleware = [
     'csv' => \audunru\ExportResponse\Middleware\ExportCsv::class,
 ];
 ```
+
+### Exporting from controller
+
+Instead of using middleware, you can perform the export in the controller:
+
+```php
+class ProductController extends Controller
+{
+    public function csv()
+    {
+        $products = Product::all();
+
+        return $products->toCsv('filename.csv');
+    }
+```
+
+Lazy collections are also supported:
+
+```php
+class ProductController extends Controller
+{
+    public function csv()
+    {
+        $products = Product::lazy();
+
+        return $products->toCsv('filename.csv');
+    }
+```
+
+Please use lazy collections when you can. During testing, using `Product::lazy()` to export 10,000 products took about 2MB of memory, compared to 44 MB of memory using `Product::all()`. Both exports took the same amount of time (around 45 seconds).
 
 ## Step 3: Exporting a response
 

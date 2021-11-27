@@ -27,6 +27,19 @@ class JsonResponseToXmlTest extends TestCase
         Collection::macro('toXml', app(ToXml::class)());
         JsonResponse::macro('JsonResponseToXml', app(ToXml::class)());
 
+        $response = $this->getWrappedResponse()->toXml('filename.xml');
+
+        $this->assertEquals("attachment; filename=\"filename.xml\"; filename*=utf-8''filename.xml", $response->headers->get('Content-Disposition'));
+        $this->assertEquals('<?xml version="1.0"?>
+<root><data><id>1</id><name>Navn</name><data><foo>bar</foo></data><meta/></data><data><id>2</id><name>Noe annet</name><data><foo>bar</foo><bar>foo</bar></data></data><meta><page>1</page></meta></root>
+', $response->getContent());
+    }
+
+    public function testItGeneratesXmlFromWrappedResponseUsingKey()
+    {
+        Collection::macro('toXml', app(ToXml::class)());
+        JsonResponse::macro('JsonResponseToXml', app(ToXml::class)());
+
         $response = $this->getWrappedResponse()->toXml('filename.xml', 'data');
 
         $this->assertEquals("attachment; filename=\"filename.xml\"; filename*=utf-8''filename.xml", $response->headers->get('Content-Disposition'));

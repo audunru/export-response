@@ -7,7 +7,10 @@ use audunru\ExportResponse\Middleware\ExportCsv;
 use audunru\ExportResponse\Middleware\ExportXlsx;
 use audunru\ExportResponse\Middleware\ExportXml;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\LazyCollection;
 use Orchestra\Testbench\TestCase as BaseTestCase;
+use Spatie\SimpleExcel\SimpleExcelReader;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -47,6 +50,14 @@ abstract class TestCase extends BaseTestCase
             ]),
             ExportXml::class,
         ])->name('documents');
+
+        $router->get('/lazycsv', function () {
+            return $this->getLazyResponse()->toCsv('lazy.csv');
+        });
+
+        $router->get('/lazyxlsx', function () {
+            return $this->getLazyResponse()->toXlsx('lazy.xlsx');
+        });
     }
 
     /**
@@ -70,7 +81,7 @@ abstract class TestCase extends BaseTestCase
         parent::tearDown();
     }
 
-    public function getUnwrappedResponse(): JsonResponse
+    protected function getUnwrappedResponse(): JsonResponse
     {
         return new JsonResponse([
             [
@@ -92,7 +103,7 @@ abstract class TestCase extends BaseTestCase
         ]);
     }
 
-    public function getWrappedResponse(): JsonResponse
+    protected function getWrappedResponse(): JsonResponse
     {
         return new JsonResponse([
             'data' => [
@@ -113,6 +124,26 @@ abstract class TestCase extends BaseTestCase
                     ],
                 ],
             ],
+            'meta' => [
+                'page' => 1,
+            ],
         ]);
+    }
+
+    protected function getLazyResponse(): LazyCollection
+    {
+        return LazyCollection::make(function () {
+            for ($id = 1; $id <= 1000; ++$id) {
+                yield ['id' => $id, 'name' => 'Navn', 'data' => ['foo' => 'bar'], 'meta' => []];
+            }
+        });
+    }
+
+    protected function getExcelReader(string $content): SimpleExcelReader
+    {
+        $filename = tempnam(sys_get_temp_dir(), '');
+        File::put($filename, $content);
+
+        return SimpleExcelReader::create($filename, 'xlsx');
     }
 }

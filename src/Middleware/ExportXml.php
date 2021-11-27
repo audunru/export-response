@@ -7,9 +7,12 @@ use audunru\ExportResponse\Enums\MimeType;
 use Closure;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use TiMacDonald\Middleware\HasParameters;
 
 class ExportXml
 {
+    use HasParameters;
+
     /**
      * @SuppressWarnings("unused")
      */
@@ -17,14 +20,14 @@ class ExportXml
     {
     }
 
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, string $key = null)
     {
         $response = $next($request);
 
         if ($request->wants(MimeType::Xml()) && $response instanceof JsonResponse) {
             $filename = $this->filenameGenerator->get($request, $response);
 
-            return $response->toXml($filename);
+            return $response->toXml($filename, $key);
         }
 
         return $response;
