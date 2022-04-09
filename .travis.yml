@@ -9,15 +9,16 @@ php:
   - 8.0
 
 env:
-  - ILLUMINATE_VERSION=^6.0 PHPUNIT_VERSION=^8.5.0 TESTBENCH_VERSION=^4.0
-  - ILLUMINATE_VERSION=^7.0 PHPUNIT_VERSION=^8.5.0 TESTBENCH_VERSION=^5.0
-  - ILLUMINATE_VERSION=^8.0 PHPUNIT_VERSION=^9.0.0 TESTBENCH_VERSION=^6.7 COVERAGE=true
+  - LARAVEL_VERSION=^6.0 TESTBENCH_VERSION=^4.0 PHPUNIT_VERSION=^8.5.0
+  - LARAVEL_VERSION=^7.0 TESTBENCH_VERSION=^5.0 PHPUNIT_VERSION=^8.5.0
+  - LARAVEL_VERSION=^8.0 TESTBENCH_VERSION=^6.7 PHPUNIT_VERSION=^9.0.0
+  - LARAVEL_VERSION=^9.0 TESTBENCH_VERSION=^7.0 PHPUNIT_VERSION=^9.0.0 COVERAGE=true
 
 before_install:
   - echo "memory_limit=2G" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   - cp ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ~/xdebug.ini
   - phpenv config-rm xdebug.ini
-  - composer require "illuminate/http:${ILLUMINATE_VERSION}" "illuminate/support:${ILLUMINATE_VERSION}" "orchestra/testbench:${TESTBENCH_VERSION}" "phpunit/phpunit:${PHPUNIT_VERSION}" --no-update --prefer-dist
+  - composer require "laravel/framework:${LARAVEL_VERSION}" "orchestra/testbench:${TESTBENCH_VERSION}" "phpunit/phpunit:${PHPUNIT_VERSION}" --no-update --prefer-dist
 
 install: travis_retry composer install --no-interaction --prefer-dist
 
