@@ -133,7 +133,7 @@ abstract class TestCase extends BaseTestCase
     protected function getLazyResponse(): LazyCollection
     {
         return LazyCollection::make(function () {
-            for ($id = 1; $id <= 1000; ++$id) {
+            for ($id = 1; $id <= 1000; $id++) {
                 yield ['id' => $id, 'name' => 'Navn', 'data' => ['foo' => 'bar'], 'meta' => []];
             }
         });
