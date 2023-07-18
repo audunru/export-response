@@ -4,6 +4,7 @@ namespace audunru\ExportResponse\Middleware;
 
 use audunru\ExportResponse\Contracts\FilenameGeneratorContract;
 use audunru\ExportResponse\Enums\MimeType;
+use Closure;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use TiMacDonald\Middleware\HasParameters;
@@ -16,7 +17,7 @@ class ExportCsv
     {
     }
 
-    public function handle(Request $request, \Closure $next, string $key = null)
+    public function handle(Request $request, Closure $next, string $key = null)
     {
         $response = $next($request);
 
