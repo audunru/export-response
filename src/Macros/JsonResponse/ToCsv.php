@@ -9,7 +9,7 @@ class ToCsv
 {
     public function __invoke()
     {
-        return function (string $filename, string $key = null): StreamedResponse {
+        return function (string $filename, ?string $key = null): StreamedResponse {
             $data = $this->getData(true);
             if (! is_null($key)) {
                 $data = Arr::get($data, $key);
