@@ -17,7 +17,7 @@ class ExportXml
     {
     }
 
-    public function handle(Request $request, Closure $next, string $key = null)
+    public function handle(Request $request, Closure $next, ?string $key = null)
     {
         $response = $next($request);
 

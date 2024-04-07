@@ -11,7 +11,7 @@ class ToXml
 {
     public function __invoke()
     {
-        return function (string $filename, string $key = null): Response {
+        return function (string $filename, ?string $key = null): Response {
             $data = $this->getData(true);
             if (! is_null($key)) {
                 $data = Arr::get($data, $key);
