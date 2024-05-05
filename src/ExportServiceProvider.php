@@ -4,6 +4,7 @@ namespace audunru\ExportResponse;
 
 use audunru\ExportResponse\Contracts\FilenameGeneratorContract;
 use audunru\ExportResponse\Response\StreamedResponse;
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -12,7 +13,7 @@ use Illuminate\Support\LazyCollection;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class ExportServiceProvider extends PackageServiceProvider
+class ExportServiceProvider extends PackageServiceProvider implements DeferrableProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -49,5 +50,12 @@ class ExportServiceProvider extends PackageServiceProvider
             FilenameGeneratorContract::class,
             config('export-response.filename-generator')
         );
+    }
+
+    public function provides(): array
+    {
+        return [
+            FilenameGeneratorContract::class,
+        ];
     }
 }
