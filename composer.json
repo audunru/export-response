@@ -20,7 +20,7 @@
     "laravel/framework": "^11.0",
     "spatie/enum": "^3.9",
     "spatie/laravel-package-tools": "^1.9",
-    "timacdonald/has-parameters": "dev-laravel-11"
+    "timacdonald/has-parameters": "^1.5"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^3.0",
@@ -71,11 +71,5 @@
       "php ./vendor/bin/phpmd config,src,tests ansi phpmd-ruleset.xml",
       "XDEBUG_MODE=coverage php ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml"
     ]
-  },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/patrickomeara/has-parameters"
-    }
-  ]
+  }
 }
