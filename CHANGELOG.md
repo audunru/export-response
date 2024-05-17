@@ -1,5 +1,26 @@
 # Changelog
 
+## [2.0.0](https://github.com/audunru/export-response/compare/v1.0.1...v2.0.0) (2024-05-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* laravel 11 support ([#15](https://github.com/audunru/export-response/issues/15))
+
+### Features
+
+* laravel 11 support ([#15](https://github.com/audunru/export-response/issues/15)) ([8e8c8fb](https://github.com/audunru/export-response/commit/8e8c8fb298ef49439350a97d35fe928a5c94c2a8))
+
+
+### Performance Improvements
+
+* service provider is deferrable ([91a7624](https://github.com/audunru/export-response/commit/91a76243a1f48a752a3fe11f88728a9e504d6f5e))
+
+
+### Miscellaneous Chores
+
+* use released version of has-parameters ([#17](https://github.com/audunru/export-response/issues/17)) ([a2857b7](https://github.com/audunru/export-response/commit/a2857b7d4533b33f8464539d27a0b6f17207e260))
+
 ## [1.0.1](https://github.com/audunru/export-response/compare/v1.0.0...v1.0.1) (2024-04-07)
 
 
