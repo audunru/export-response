@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/audunru/export-response/compare/v2.0.0...v2.0.1) (2024-05-20)
+
+
+### Miscellaneous Chores
+
+* parallel php-cs-fixer ([ae79b13](https://github.com/audunru/export-response/commit/ae79b1342f67c3708ab4bc7823dce16bb22778ea))
+
 ## [2.0.0](https://github.com/audunru/export-response/compare/v1.0.1...v2.0.0) (2024-05-17)
 
 
