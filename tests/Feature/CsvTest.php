@@ -11,7 +11,7 @@ class CsvTest extends TestCase
         $response = $this->get('/unwrapped', ['Accept' => 'text/csv']);
 
         $response
-            ->assertStatus(200)
+            ->assertOk()
             ->assertHeader('Content-Type', 'text/csv; charset=UTF-8');
 
         $this->assertEquals("attachment; filename=\"documents.csv\"; filename*=utf-8''documents.csv", $response->headers->get('Content-Disposition'));
@@ -26,7 +26,7 @@ class CsvTest extends TestCase
         $response = $this->get('/wrapped', ['Accept' => 'text/csv']);
 
         $response
-            ->assertStatus(200)
+            ->assertOk()
             ->assertHeader('Content-Type', 'text/csv; charset=UTF-8');
 
         $this->assertEquals("attachment; filename=\"documents.csv\"; filename*=utf-8''documents.csv", $response->headers->get('Content-Disposition'));
@@ -41,7 +41,7 @@ class CsvTest extends TestCase
         $response = $this->get('/lazycsv', ['Accept' => 'text/csv']);
 
         $response
-            ->assertStatus(200)
+            ->assertOk()
             ->assertHeader('Content-Type', 'text/csv; charset=UTF-8');
 
         $this->assertEquals("attachment; filename=\"lazy.csv\"; filename*=utf-8''lazy.csv", $response->headers->get('Content-Disposition'));

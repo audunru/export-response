@@ -11,7 +11,7 @@ class JsonTest extends TestCase
         $response = $this->get('/wrapped', ['Accept' => '	application/json']);
 
         $response
-          ->assertStatus(200)
+          ->assertOk()
           ->assertJson(['data' => [
               [
                   'id'   => 1,

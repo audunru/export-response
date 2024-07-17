@@ -11,7 +11,7 @@ class XmlTest extends TestCase
         $response = $this->get('/wrapped', ['Accept' => 'application/xml']);
 
         $response
-            ->assertStatus(200)
+            ->assertOk()
             ->assertHeader('Content-Type', 'application/xml');
 
         $this->assertEquals("attachment; filename=\"documents.xml\"; filename*=utf-8''documents.xml", $response->headers->get('Content-Disposition'));
