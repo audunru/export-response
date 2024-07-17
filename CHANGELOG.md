@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/audunru/export-response/compare/v2.0.1...v2.0.2) (2024-07-17)
+
+
+### Miscellaneous Chores
+
+* update dependencies ([d4d9702](https://github.com/audunru/export-response/commit/d4d97020ac6ed7793df02c199ad40d98b82841e1))
+
 ## [2.0.1](https://github.com/audunru/export-response/compare/v2.0.0...v2.0.1) (2024-05-20)
 
 
