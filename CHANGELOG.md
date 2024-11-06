@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.3](https://github.com/audunru/export-response/compare/v2.0.2...v2.0.3) (2024-11-06)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump the composer group across 1 directory with 2 updates ([#21](https://github.com/audunru/export-response/issues/21)) ([0112368](https://github.com/audunru/export-response/commit/0112368c485b1c458621a8d617d13f299786a242))
+
 ## [2.0.2](https://github.com/audunru/export-response/compare/v2.0.1...v2.0.2) (2024-08-25)
 
 
