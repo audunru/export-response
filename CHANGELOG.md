@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.4](https://github.com/audunru/export-response/compare/v2.0.3...v2.0.4) (2024-11-14)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump laravel/framework ([#23](https://github.com/audunru/export-response/issues/23)) ([4d35386](https://github.com/audunru/export-response/commit/4d35386e0947f5f602c21decbb090b7c171e4aa7))
+
 ## [2.0.3](https://github.com/audunru/export-response/compare/v2.0.2...v2.0.3) (2024-11-06)
 
 
