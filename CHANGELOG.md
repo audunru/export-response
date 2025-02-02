@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.5](https://github.com/audunru/export-response/compare/v2.0.4...v2.0.5) (2025-02-01)
+
+
+### Miscellaneous Chores
+
+* dependabot config ([e277824](https://github.com/audunru/export-response/commit/e277824a5f64c3be0b091843c5e39290bc2b14f2))
+* **deps-dev:** bump orchestra/testbench from 9.2.0 to 9.9.0 ([#30](https://github.com/audunru/export-response/issues/30)) ([ce027ab](https://github.com/audunru/export-response/commit/ce027abd06c4d375002db8e394826aa7bbc0535b))
+* **deps-dev:** bump spatie/array-to-xml from 3.3.0 to 3.4.0 ([#31](https://github.com/audunru/export-response/issues/31)) ([d1debe0](https://github.com/audunru/export-response/commit/d1debe0079cab71e2872b501f3746de6137eb5c9))
+* **deps-dev:** bump spatie/simple-excel from 3.6.0 to 3.7.1 ([#28](https://github.com/audunru/export-response/issues/28)) ([ef18c52](https://github.com/audunru/export-response/commit/ef18c521c101af7221cf01df28432caf2e001f5e))
+
 ## [2.0.4](https://github.com/audunru/export-response/compare/v2.0.3...v2.0.4) (2024-12-10)
 
 
