@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.6](https://github.com/audunru/export-response/compare/v2.0.5...v2.0.6) (2025-02-14)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump spatie/laravel-package-tools from 1.18.3 to 1.19.0 ([#32](https://github.com/audunru/export-response/issues/32)) ([5d1ead0](https://github.com/audunru/export-response/commit/5d1ead08cc3eb78e5e5d93989c2da2402b1c18d5))
+
 ## [2.0.5](https://github.com/audunru/export-response/compare/v2.0.4...v2.0.5) (2025-02-01)
 
 
