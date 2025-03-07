@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.7](https://github.com/audunru/export-response/compare/v2.0.6...v2.0.7) (2025-03-07)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#38](https://github.com/audunru/export-response/issues/38)) ([718caba](https://github.com/audunru/export-response/commit/718caba40e32f9759a3db1465dbefc12ee27def7))
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#39](https://github.com/audunru/export-response/issues/39)) ([a03a081](https://github.com/audunru/export-response/commit/a03a0814b8bd7ea42161d301ff2a505374e908be))
+* **deps-dev:** bump friendsofphp/php-cs-fixer from 3.68.5 to 3.69.0 ([#34](https://github.com/audunru/export-response/issues/34)) ([c48fbea](https://github.com/audunru/export-response/commit/c48fbea7a1f8b1577f8af506d66090ba0c04b489))
+* **deps-dev:** bump orchestra/testbench from 9.9.0 to 9.10.0 ([#36](https://github.com/audunru/export-response/issues/36)) ([7b36575](https://github.com/audunru/export-response/commit/7b365750e3b7ab3a673dd45f4abf8534980f5457))
+* **deps-dev:** bump spatie/simple-excel from 3.7.1 to 3.7.2 ([#35](https://github.com/audunru/export-response/issues/35)) ([0b15164](https://github.com/audunru/export-response/commit/0b15164d0b9e80a1af91f373cc7270e0cf221799))
+* **deps:** bump laravel/framework in the composer group ([#40](https://github.com/audunru/export-response/issues/40)) ([1de5e7c](https://github.com/audunru/export-response/commit/1de5e7c992ed9d2eeed7a49412a94d7ba6b50279))
+
 ## [2.0.6](https://github.com/audunru/export-response/compare/v2.0.5...v2.0.6) (2025-02-14)
 
 
