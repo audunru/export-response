@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.8](https://github.com/audunru/export-response/compare/v2.0.7...v2.0.8) (2025-03-15)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#41](https://github.com/audunru/export-response/issues/41)) ([abba5a7](https://github.com/audunru/export-response/commit/abba5a7d7e3adbc4341810c41b6c2d4b5130d080))
+
 ## [2.0.7](https://github.com/audunru/export-response/compare/v2.0.6...v2.0.7) (2025-03-07)
 
 
