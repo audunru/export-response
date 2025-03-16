@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.8](https://github.com/audunru/export-response/compare/v2.0.7...v2.0.8) (2025-03-16)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#41](https://github.com/audunru/export-response/issues/41)) ([abba5a7](https://github.com/audunru/export-response/commit/abba5a7d7e3adbc4341810c41b6c2d4b5130d080))
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#43](https://github.com/audunru/export-response/issues/43)) ([7b83a30](https://github.com/audunru/export-response/commit/7b83a30a7c3f32240b5fb24585fdc1e13529b55c))
+* rename master branch to main ([ab648c3](https://github.com/audunru/export-response/commit/ab648c38a1212c4fb579870f66f17e3b38185c1b))
+
 ## [2.0.7](https://github.com/audunru/export-response/compare/v2.0.6...v2.0.7) (2025-03-07)
 
 
