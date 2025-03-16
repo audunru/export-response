@@ -1,8 +1,8 @@
 # Export JSON responses from Laravel
 
 [![Build Status](https://github.com/audunru/export-response/actions/workflows/validate.yml/badge.svg)](https://github.com/audunru/export-response/actions/workflows/validate.yml)
-[![Coverage Status](https://coveralls.io/repos/github/audunru/export-response/badge.svg?branch=master)](https://coveralls.io/github/audunru/export-response?branch=master)
-[![StyleCI](https://github.styleci.io/repos/407671897/shield?branch=master)](https://github.styleci.io/repos/407671897)
+[![Coverage Status](https://coveralls.io/repos/github/audunru/export-response/badge.svg?branch=main)](https://coveralls.io/github/audunru/export-response?branch=main)
+[![StyleCI](https://github.styleci.io/repos/407671897/shield?branch=main)](https://github.styleci.io/repos/407671897)
 
 Currently supported:
 
