@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.9](https://github.com/audunru/export-response/compare/v2.0.8...v2.0.9) (2025-04-01)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#47](https://github.com/audunru/export-response/issues/47)) ([145474c](https://github.com/audunru/export-response/commit/145474c9bd2030414215a82dcc939d7397d46c6e))
+* **deps:** bump spatie/laravel-package-tools ([#46](https://github.com/audunru/export-response/issues/46)) ([9fbcf0a](https://github.com/audunru/export-response/commit/9fbcf0a891716ed92fe89d6230ef35f364e51831))
+
 ## [2.0.8](https://github.com/audunru/export-response/compare/v2.0.7...v2.0.8) (2025-03-16)
 
 
