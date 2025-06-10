@@ -1,5 +1,26 @@
 # Changelog
 
+## [3.0.0](https://github.com/audunru/export-response/compare/v2.0.8...v3.0.0) (2025-06-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* laravel 12 support ([#45](https://github.com/audunru/export-response/issues/45))
+
+### Features
+
+* laravel 12 support ([#45](https://github.com/audunru/export-response/issues/45)) ([cbc7ab1](https://github.com/audunru/export-response/commit/cbc7ab1d0f1cb7c3af1b1e2ab3a4ec71b32ad42d))
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#47](https://github.com/audunru/export-response/issues/47)) ([145474c](https://github.com/audunru/export-response/commit/145474c9bd2030414215a82dcc939d7397d46c6e))
+* **deps-dev:** bump php-coveralls/php-coveralls ([#52](https://github.com/audunru/export-response/issues/52)) ([51642d6](https://github.com/audunru/export-response/commit/51642d6d34d95e98bc2d7f3e88f8fead5578cf7c))
+* **deps:** bump league/commonmark in the composer group ([#50](https://github.com/audunru/export-response/issues/50)) ([9249a0c](https://github.com/audunru/export-response/commit/9249a0c70c9201ee12f66589917789a0cf74fcac))
+* **deps:** bump spatie/laravel-package-tools ([#46](https://github.com/audunru/export-response/issues/46)) ([9fbcf0a](https://github.com/audunru/export-response/commit/9fbcf0a891716ed92fe89d6230ef35f364e51831))
+* **deps:** bump spatie/laravel-package-tools ([#49](https://github.com/audunru/export-response/issues/49)) ([6a322b9](https://github.com/audunru/export-response/commit/6a322b95afdfd36450ea3bc4d372768cff75b0dd))
+* **deps:** bump timacdonald/has-parameters ([#51](https://github.com/audunru/export-response/issues/51)) ([580989b](https://github.com/audunru/export-response/commit/580989b78f35c8f969266c49d2e582a18a699eaa))
+
 ## [2.0.8](https://github.com/audunru/export-response/compare/v2.0.7...v2.0.8) (2025-03-16)
 
 
