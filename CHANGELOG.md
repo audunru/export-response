@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.0.1](https://github.com/audunru/export-response/compare/v3.0.0...v3.0.1) (2025-08-02)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#54](https://github.com/audunru/export-response/issues/54)) ([4ee8088](https://github.com/audunru/export-response/commit/4ee8088f547e82ed7824269661115c353f8508ab))
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#57](https://github.com/audunru/export-response/issues/57)) ([d5749a8](https://github.com/audunru/export-response/commit/d5749a8d64913bbcd46371034d178574c04ca5be))
+* **deps:** bump laravel/framework in the production-dependencies group ([#53](https://github.com/audunru/export-response/issues/53)) ([65967b3](https://github.com/audunru/export-response/commit/65967b3de2c041d163399d4a8ddb800efe3aa8a8))
+* **deps:** bump the production-dependencies group with 2 updates ([#56](https://github.com/audunru/export-response/issues/56)) ([dc7399b](https://github.com/audunru/export-response/commit/dc7399b283cda61d6673d105b6b5f6cf7b29d2fa))
+
 ## [3.0.0](https://github.com/audunru/export-response/compare/v2.0.8...v3.0.0) (2025-06-10)
 
 
