@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.0.1](https://github.com/audunru/export-response/compare/v3.0.0...v3.0.1) (2025-09-16)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#54](https://github.com/audunru/export-response/issues/54)) ([4ee8088](https://github.com/audunru/export-response/commit/4ee8088f547e82ed7824269661115c353f8508ab))
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#57](https://github.com/audunru/export-response/issues/57)) ([d5749a8](https://github.com/audunru/export-response/commit/d5749a8d64913bbcd46371034d178574c04ca5be))
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#63](https://github.com/audunru/export-response/issues/63)) ([e48511c](https://github.com/audunru/export-response/commit/e48511c8899bed859a89d3729ee2b99a8b2cf77a))
+* **deps-dev:** bump the development-dependencies group with 3 updates ([#58](https://github.com/audunru/export-response/issues/58)) ([f3808b5](https://github.com/audunru/export-response/commit/f3808b5352ac29cf2cdebcb45946d2f93abbef48))
+* **deps:** bump actions/checkout from 4 to 5 ([#61](https://github.com/audunru/export-response/issues/61)) ([8c802f6](https://github.com/audunru/export-response/commit/8c802f6033d6db788c450759cbed47eecf9d584c))
+* **deps:** bump amannn/action-semantic-pull-request from 5 to 6 ([#60](https://github.com/audunru/export-response/issues/60)) ([f8f2d4c](https://github.com/audunru/export-response/commit/f8f2d4c348d47bb5232b10523f03dd753cc9de40))
+* **deps:** bump laravel/framework in the production-dependencies group ([#53](https://github.com/audunru/export-response/issues/53)) ([65967b3](https://github.com/audunru/export-response/commit/65967b3de2c041d163399d4a8ddb800efe3aa8a8))
+* **deps:** bump laravel/framework in the production-dependencies group ([#59](https://github.com/audunru/export-response/issues/59)) ([7806da8](https://github.com/audunru/export-response/commit/7806da8ecf6310ab20693eec3101fe3e57370fb9))
+* **deps:** bump laravel/framework in the production-dependencies group ([#62](https://github.com/audunru/export-response/issues/62)) ([e80caca](https://github.com/audunru/export-response/commit/e80caca721232fa6c9da423aeb388e1ca98d3948))
+* **deps:** bump the production-dependencies group with 2 updates ([#56](https://github.com/audunru/export-response/issues/56)) ([dc7399b](https://github.com/audunru/export-response/commit/dc7399b283cda61d6673d105b6b5f6cf7b29d2fa))
+
 ## [3.0.0](https://github.com/audunru/export-response/compare/v2.0.8...v3.0.0) (2025-06-10)
 
 
