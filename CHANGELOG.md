@@ -1,5 +1,86 @@
 # Changelog
 
+## [2.0.0](https://github.com/audunru/export-response/compare/v1.0.0...v2.0.0) (2025-11-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* laravel 12 support ([#45](https://github.com/audunru/export-response/issues/45))
+* laravel 11 support ([#15](https://github.com/audunru/export-response/issues/15))
+
+### Features
+
+* laravel 11 support ([#15](https://github.com/audunru/export-response/issues/15)) ([611e041](https://github.com/audunru/export-response/commit/611e04123c8e7e68e4fe2b496c45dbaf5f2b2cbf))
+* laravel 12 support ([#45](https://github.com/audunru/export-response/issues/45)) ([df336dd](https://github.com/audunru/export-response/commit/df336dd94db234e98c7d0d475d224361afce6acc))
+
+
+### Performance Improvements
+
+* service provider is deferrable ([c28ab8c](https://github.com/audunru/export-response/commit/c28ab8c99afbe0671a80e67d836886540b9c4b08))
+
+
+### Miscellaneous Chores
+
+* delete prettier config ([d8eb2a2](https://github.com/audunru/export-response/commit/d8eb2a2e13abca309cac50d4e1c5dbab0c14d1c9))
+* dependabot config ([6c86343](https://github.com/audunru/export-response/commit/6c8634316748c14ba97568b8a47f6d9a34ae21a0))
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#38](https://github.com/audunru/export-response/issues/38)) ([60a59a3](https://github.com/audunru/export-response/commit/60a59a393a63c97acced590cf8527a2cdc4a4815))
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#39](https://github.com/audunru/export-response/issues/39)) ([eb266f9](https://github.com/audunru/export-response/commit/eb266f9a048ed64fb2e6579216013408a46f8124))
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#41](https://github.com/audunru/export-response/issues/41)) ([5b5ce63](https://github.com/audunru/export-response/commit/5b5ce63eeb22d40a1112cd274852287f6a83bf45))
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#43](https://github.com/audunru/export-response/issues/43)) ([a0bc91b](https://github.com/audunru/export-response/commit/a0bc91bf8946eafbf7b17fca787cfd80aa056bb5))
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#47](https://github.com/audunru/export-response/issues/47)) ([50e11a2](https://github.com/audunru/export-response/commit/50e11a2ede835af2e49388fe1a47f165c09a013a))
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#54](https://github.com/audunru/export-response/issues/54)) ([c2b4ddd](https://github.com/audunru/export-response/commit/c2b4ddd5f4efcf58e24ff7680e218ae2e308a1ec))
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#57](https://github.com/audunru/export-response/issues/57)) ([68a1438](https://github.com/audunru/export-response/commit/68a1438b4add5069e7fd849d105fa473d5dae53f))
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#63](https://github.com/audunru/export-response/issues/63)) ([094a848](https://github.com/audunru/export-response/commit/094a848586c26d820587df6c2beabf97e4564aaf))
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#65](https://github.com/audunru/export-response/issues/65)) ([f5a7e90](https://github.com/audunru/export-response/commit/f5a7e90ad03493a57671bb45d4d00874a4329ccf))
+* **deps-dev:** bump friendsofphp/php-cs-fixer ([#70](https://github.com/audunru/export-response/issues/70)) ([cd64e76](https://github.com/audunru/export-response/commit/cd64e762f66d9f5c9c51d744f343db98ad8dab12))
+* **deps-dev:** bump friendsofphp/php-cs-fixer from 3.68.5 to 3.69.0 ([#34](https://github.com/audunru/export-response/issues/34)) ([8ed4343](https://github.com/audunru/export-response/commit/8ed4343adcfd034765e9ce9ef68e0e3ebc5507af))
+* **deps-dev:** bump orchestra/testbench from 9.2.0 to 9.9.0 ([#30](https://github.com/audunru/export-response/issues/30)) ([68df081](https://github.com/audunru/export-response/commit/68df0816476b757fd606115931b661839dd89b9a))
+* **deps-dev:** bump orchestra/testbench from 9.9.0 to 9.10.0 ([#36](https://github.com/audunru/export-response/issues/36)) ([9b2b498](https://github.com/audunru/export-response/commit/9b2b498bbf5563a167a2177fa7423a4a2fc3ce41))
+* **deps-dev:** bump php-coveralls/php-coveralls ([#52](https://github.com/audunru/export-response/issues/52)) ([7036a1c](https://github.com/audunru/export-response/commit/7036a1c7675022308b6ec7e96fc01a8c4467165d))
+* **deps-dev:** bump spatie/array-to-xml from 3.3.0 to 3.4.0 ([#31](https://github.com/audunru/export-response/issues/31)) ([b8265d8](https://github.com/audunru/export-response/commit/b8265d88573eaff143595c051319c452101d6604))
+* **deps-dev:** bump spatie/simple-excel from 3.6.0 to 3.7.1 ([#28](https://github.com/audunru/export-response/issues/28)) ([e68e81a](https://github.com/audunru/export-response/commit/e68e81abe7398fb059ef129f12a327ef1e68a25b))
+* **deps-dev:** bump spatie/simple-excel from 3.7.1 to 3.7.2 ([#35](https://github.com/audunru/export-response/issues/35)) ([37d87ea](https://github.com/audunru/export-response/commit/37d87eac03a38a2e28fdb4654d105b07e8659c97))
+* **deps-dev:** bump the development-dependencies group with 3 updates ([#58](https://github.com/audunru/export-response/issues/58)) ([3bb010b](https://github.com/audunru/export-response/commit/3bb010b5bb6e0a08fad0085b85915cb851f9e226))
+* **deps:** bump actions/checkout from 4 to 5 ([#61](https://github.com/audunru/export-response/issues/61)) ([2c7fc5b](https://github.com/audunru/export-response/commit/2c7fc5b5d9ea252c338df2f76467e30699a454b0))
+* **deps:** bump amannn/action-semantic-pull-request from 5 to 6 ([#60](https://github.com/audunru/export-response/issues/60)) ([6fd30a6](https://github.com/audunru/export-response/commit/6fd30a6d2b95bc5bd7c4973369131b4a5881464f))
+* **deps:** bump laravel/framework ([#23](https://github.com/audunru/export-response/issues/23)) ([ead114f](https://github.com/audunru/export-response/commit/ead114f8874410654350649805b757ead26b5a2a))
+* **deps:** bump laravel/framework from 12.32.5 to 12.33.0 in the production-dependencies group ([#67](https://github.com/audunru/export-response/issues/67)) ([667d853](https://github.com/audunru/export-response/commit/667d853104775b87b5a342555236161e9b37ab1e))
+* **deps:** bump laravel/framework in the composer group ([#40](https://github.com/audunru/export-response/issues/40)) ([8741937](https://github.com/audunru/export-response/commit/8741937acea425cd963b7602c6d13b0c1a6593f0))
+* **deps:** bump laravel/framework in the production-dependencies group ([#53](https://github.com/audunru/export-response/issues/53)) ([9908329](https://github.com/audunru/export-response/commit/9908329367296e2d788d4a6e1ee531e00178ef74))
+* **deps:** bump laravel/framework in the production-dependencies group ([#59](https://github.com/audunru/export-response/issues/59)) ([8248a3b](https://github.com/audunru/export-response/commit/8248a3b55f83bd0bfc56d88e058f52d52f88958c))
+* **deps:** bump laravel/framework in the production-dependencies group ([#62](https://github.com/audunru/export-response/issues/62)) ([0929a81](https://github.com/audunru/export-response/commit/0929a81edc591dd9815ba645b04b21af39786c59))
+* **deps:** bump laravel/framework in the production-dependencies group ([#64](https://github.com/audunru/export-response/issues/64)) ([5de4794](https://github.com/audunru/export-response/commit/5de479425723ac35d81c0c60ca6c9709994aa582))
+* **deps:** bump laravel/framework in the production-dependencies group ([#69](https://github.com/audunru/export-response/issues/69)) ([3401045](https://github.com/audunru/export-response/commit/3401045227fd815a4e61efe2ec14989edc3b2a1c))
+* **deps:** bump league/commonmark ([#25](https://github.com/audunru/export-response/issues/25)) ([5375550](https://github.com/audunru/export-response/commit/5375550b09ae6cd69a5eabd4e041195fe60651e0))
+* **deps:** bump league/commonmark in the composer group ([#50](https://github.com/audunru/export-response/issues/50)) ([d62e704](https://github.com/audunru/export-response/commit/d62e704abfa8646277ee33ede53ea36fd9c26b33))
+* **deps:** bump spatie/laravel-package-tools ([#46](https://github.com/audunru/export-response/issues/46)) ([ad1b737](https://github.com/audunru/export-response/commit/ad1b737416200867cbf0bad030e93acd1560f8d1))
+* **deps:** bump spatie/laravel-package-tools ([#49](https://github.com/audunru/export-response/issues/49)) ([a683dff](https://github.com/audunru/export-response/commit/a683dff482ca4b6a55ad0183d0a24926f9ce079c))
+* **deps:** bump spatie/laravel-package-tools from 1.18.3 to 1.19.0 ([#32](https://github.com/audunru/export-response/issues/32)) ([61ac304](https://github.com/audunru/export-response/commit/61ac304c2442c65a0cc595debe11452c613a191f))
+* **deps:** bump symfony/http-foundation from 7.3.5 to 7.3.7 ([#71](https://github.com/audunru/export-response/issues/71)) ([3ce2f8b](https://github.com/audunru/export-response/commit/3ce2f8ba64d14f920cff6744f3f5601d533a5d78))
+* **deps:** bump the composer group across 1 directory with 2 updates ([#21](https://github.com/audunru/export-response/issues/21)) ([f67086f](https://github.com/audunru/export-response/commit/f67086f8947aef04eb45a81ba92adce7b94d21e7))
+* **deps:** bump the production-dependencies group with 2 updates ([#56](https://github.com/audunru/export-response/issues/56)) ([0efd4e8](https://github.com/audunru/export-response/commit/0efd4e8983642a4d0bf243c7b310a4084ea8625d))
+* **deps:** bump timacdonald/has-parameters ([#51](https://github.com/audunru/export-response/issues/51)) ([f5bcff7](https://github.com/audunru/export-response/commit/f5bcff736f3fcfa2db7aa4269806f86d5ba52d65))
+* **main:** release 2.0.8 ([#44](https://github.com/audunru/export-response/issues/44)) ([8625305](https://github.com/audunru/export-response/commit/862530583c4f97eaa2c09aa38b23431980a42002))
+* **main:** release 3.0.0 ([#48](https://github.com/audunru/export-response/issues/48)) ([3606ed9](https://github.com/audunru/export-response/commit/3606ed95e4b9ca47c6241337f0a9851266576997))
+* **main:** release 3.0.1 ([#55](https://github.com/audunru/export-response/issues/55)) ([494b1b2](https://github.com/audunru/export-response/commit/494b1b2b852231ae39b6653b5530f94f21a8865e))
+* **main:** release 3.0.2 ([#66](https://github.com/audunru/export-response/issues/66)) ([08a9893](https://github.com/audunru/export-response/commit/08a989337f8a9d33eabf4d4885aa65bb8153753c))
+* **master:** release 1.0.1 ([#13](https://github.com/audunru/export-response/issues/13)) ([f32471c](https://github.com/audunru/export-response/commit/f32471c4ff0a722b0de185061a63b11619d1481f))
+* **master:** release 2.0.0 ([#16](https://github.com/audunru/export-response/issues/16)) ([672b9d0](https://github.com/audunru/export-response/commit/672b9d0fc72d88d1a9f0a63a80b5d8ec2b3e7dd3))
+* **master:** release 2.0.1 ([#18](https://github.com/audunru/export-response/issues/18)) ([13eb941](https://github.com/audunru/export-response/commit/13eb9417bbe65d08213c0ceaa1ca5e9b535900e5))
+* **master:** release 2.0.2 ([#20](https://github.com/audunru/export-response/issues/20)) ([1e37e43](https://github.com/audunru/export-response/commit/1e37e43dcc1b6da844d7b61e10465f21e74738fc))
+* **master:** release 2.0.3 ([#22](https://github.com/audunru/export-response/issues/22)) ([f34574d](https://github.com/audunru/export-response/commit/f34574d4ba533d96f1b1ddc415ad125bc31e4d39))
+* **master:** release 2.0.4 ([#24](https://github.com/audunru/export-response/issues/24)) ([23b451d](https://github.com/audunru/export-response/commit/23b451d0b789bdda62e5b24a6629138b96e70664))
+* **master:** release 2.0.5 ([#26](https://github.com/audunru/export-response/issues/26)) ([b1ec189](https://github.com/audunru/export-response/commit/b1ec18934eb9c40d8ea15819c992b276c8498bb6))
+* **master:** release 2.0.6 ([#33](https://github.com/audunru/export-response/issues/33)) ([743d434](https://github.com/audunru/export-response/commit/743d434f24031f6d6c64099a0926ab9f7c4a82c9))
+* **master:** release 2.0.7 ([#37](https://github.com/audunru/export-response/issues/37)) ([e3f6e4c](https://github.com/audunru/export-response/commit/e3f6e4c40fa8ac49c48a25cee35102f44d163635))
+* parallel php-cs-fixer ([49bb124](https://github.com/audunru/export-response/commit/49bb12442a3df644348a22bdbb04f84b91b96636))
+* rename master branch to main ([9dde832](https://github.com/audunru/export-response/commit/9dde832b6bc6219948b1c89781e6bfd0effeebf5))
+* update dependencies ([eda65d1](https://github.com/audunru/export-response/commit/eda65d19695f64870368b632cde62b672a813c04))
+* update dependencies ([13e814f](https://github.com/audunru/export-response/commit/13e814fccb716756d5a729a13d2851dbe49afa39))
+* update phpunit ([24e6e55](https://github.com/audunru/export-response/commit/24e6e5521eba15f3477b6bb89c73c92f11920bac))
+* update styleci config ([3535c12](https://github.com/audunru/export-response/commit/3535c1230d22b444d31f599aa6c06efd81569535))
+* use released version of has-parameters ([#17](https://github.com/audunru/export-response/issues/17)) ([1032aa5](https://github.com/audunru/export-response/commit/1032aa55c6c2120b0034ff5b1c0160b7ec5e8776))
+
 ## [3.0.2](https://github.com/audunru/export-response/compare/v3.0.1...v3.0.2) (2025-10-02)
 
 
