@@ -1,3 +1,10 @@
+## [3.0.4](https://github.com/audunru/export-response/compare/v3.0.3...v3.0.4) (2025-11-15)
+
+
+### Bug Fixes
+
+* force semantic release ([9e75267](https://github.com/audunru/export-response/commit/9e7526768d130c3ed9a21b8330af64e42dd6b981))
+
 # Changelog
 
 ## [3.0.2](https://github.com/audunru/export-response/compare/v3.0.1...v3.0.2) (2025-10-02)
