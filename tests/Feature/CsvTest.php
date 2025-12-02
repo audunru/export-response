@@ -12,7 +12,7 @@ class CsvTest extends TestCase
 
         $response
             ->assertOk()
-            ->assertHeader('Content-Type', 'text/csv; charset=UTF-8');
+            ->assertHeader('Content-Type', 'text/csv; charset=utf-8');
 
         $this->assertEquals("attachment; filename=\"documents.csv\"; filename*=utf-8''documents.csv", $response->headers->get('Content-Disposition'));
         $this->assertEquals('id,name,data.foo,meta,data.bar
@@ -27,7 +27,7 @@ class CsvTest extends TestCase
 
         $response
             ->assertOk()
-            ->assertHeader('Content-Type', 'text/csv; charset=UTF-8');
+            ->assertHeader('Content-Type', 'text/csv; charset=utf-8');
 
         $this->assertEquals("attachment; filename=\"documents.csv\"; filename*=utf-8''documents.csv", $response->headers->get('Content-Disposition'));
         $this->assertEquals('id,name,data.foo,meta,data.bar
@@ -42,7 +42,7 @@ class CsvTest extends TestCase
 
         $response
             ->assertOk()
-            ->assertHeader('Content-Type', 'text/csv; charset=UTF-8');
+            ->assertHeader('Content-Type', 'text/csv; charset=utf-8');
 
         $this->assertEquals("attachment; filename=\"lazy.csv\"; filename*=utf-8''lazy.csv", $response->headers->get('Content-Disposition'));
         $content = array_filter(explode("\n", $response->streamedContent()));
