@@ -6,7 +6,7 @@ use audunru\ExportResponse\Tests\TestCase;
 
 class CsvTest extends TestCase
 {
-    public function testItGetsCsvFromUnwrappedResponse()
+    public function test_it_gets_csv_from_unwrapped_response()
     {
         $response = $this->get('/unwrapped', ['Accept' => 'text/csv']);
 
@@ -21,7 +21,7 @@ class CsvTest extends TestCase
 ', $response->streamedContent());
     }
 
-    public function testItGetsCsvFromWrappedResponse()
+    public function test_it_gets_csv_from_wrapped_response()
     {
         $response = $this->get('/wrapped', ['Accept' => 'text/csv']);
 
@@ -36,7 +36,7 @@ class CsvTest extends TestCase
 ', $response->streamedContent());
     }
 
-    public function testItGetsCsvFromLazyCollection()
+    public function test_it_gets_csv_from_lazy_collection()
     {
         $response = $this->get('/lazycsv', ['Accept' => 'text/csv']);
 

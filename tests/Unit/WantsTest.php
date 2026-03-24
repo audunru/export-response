@@ -9,11 +9,11 @@ use Illuminate\Http\Request;
 
 class WantsTest extends TestCase
 {
-    public function testItWantsCsv()
+    public function test_it_wants_csv()
     {
         Request::macro('wants', app(Wants::class)());
 
-        $request = new Request();
+        $request = new Request;
         $request->headers->set('Accept', 'text/csv');
 
         $result = $request->wants(MimeType::Csv());
@@ -21,11 +21,11 @@ class WantsTest extends TestCase
         $this->assertTrue($result);
     }
 
-    public function testItWantsXml()
+    public function test_it_wants_xml()
     {
         Request::macro('wants', app(Wants::class)());
 
-        $request = new Request();
+        $request = new Request;
         $request->headers->set('Accept', 'application/xml');
 
         $result = $request->wants(MimeType::Csv());

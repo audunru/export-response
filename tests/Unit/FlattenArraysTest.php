@@ -10,7 +10,7 @@ use Illuminate\Support\LazyCollection;
 
 class FlattenArraysTest extends TestCase
 {
-    public function testItFlattensArrays()
+    public function test_it_flattens_arrays()
     {
         Collection::macro('flattenArrays', app(FlattenArrays::class)());
 
@@ -24,7 +24,7 @@ class FlattenArraysTest extends TestCase
         $this->assertEquals(['id' => 2, 'name' => 'Noe annet', 'data.foo' => 'bar', 'data.bar' => 'foo', 'meta' => null], $result->last());
     }
 
-    public function testItFlattensArraysInLazyCollection()
+    public function test_it_flattens_arrays_in_lazy_collection()
     {
         LazyCollection::macro('flattenArrays', app(FlattenArrays::class)());
 
@@ -38,7 +38,7 @@ class FlattenArraysTest extends TestCase
         $this->assertEquals(['id' => 2, 'name' => 'Noe annet', 'data.foo' => 'bar', 'data.bar' => 'foo', 'meta' => null], $result->last());
     }
 
-    public function testItFlattensCollectionOfModels()
+    public function test_it_flattens_collection_of_models()
     {
         LazyCollection::macro('flattenArrays', app(FlattenArrays::class)());
 

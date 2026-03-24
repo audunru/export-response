@@ -24,7 +24,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('app.debug', 'true' === env('APP_DEBUG'));
+        $app['config']->set('app.debug', env('APP_DEBUG') === 'true');
         $app['config']->set('app.key', substr(str_shuffle(str_repeat('0123456789abcdefghijklmnopqrstuvwxyz', 5)), 0, 32));
         $app->register(ExportServiceProvider::class);
     }
@@ -85,7 +85,7 @@ abstract class TestCase extends BaseTestCase
     {
         return new JsonResponse([
             [
-                'id'   => 1,
+                'id' => 1,
                 'name' => 'Navn',
                 'data' => [
                     'foo' => 'bar',
@@ -93,7 +93,7 @@ abstract class TestCase extends BaseTestCase
                 'meta' => [],
             ],
             [
-                'id'   => 2,
+                'id' => 2,
                 'name' => 'Noe annet',
                 'data' => [
                     'foo' => 'bar',
@@ -108,7 +108,7 @@ abstract class TestCase extends BaseTestCase
         return new JsonResponse([
             'data' => [
                 [
-                    'id'   => 1,
+                    'id' => 1,
                     'name' => 'Navn',
                     'data' => [
                         'foo' => 'bar',
@@ -116,7 +116,7 @@ abstract class TestCase extends BaseTestCase
                     'meta' => [],
                 ],
                 [
-                    'id'   => 2,
+                    'id' => 2,
                     'name' => 'Noe annet',
                     'data' => [
                         'foo' => 'bar',

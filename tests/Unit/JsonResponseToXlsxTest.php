@@ -9,7 +9,7 @@ use Illuminate\Testing\TestResponse;
 
 class JsonResponseToXlsxTest extends TestCase
 {
-    public function testItGeneratesCsvFromUnwrappedResponse()
+    public function test_it_generates_csv_from_unwrapped_response()
     {
         Collection::macro('flattenArrays', app(FlattenArrays::class)());
 
@@ -24,22 +24,22 @@ class JsonResponseToXlsxTest extends TestCase
         $this->assertEquals(['id', 'name', 'data.foo', 'meta', 'data.bar'], $headers);
         $this->assertEquals(2, count($rows));
         $this->assertEquals([
-            'id'       => 1,
-            'name'     => 'Navn',
+            'id' => 1,
+            'name' => 'Navn',
             'data.foo' => 'bar',
-            'meta'     => '',
+            'meta' => '',
             'data.bar' => '',
         ], $rows[0]);
         $this->assertEquals([
-            'id'       => 2,
-            'name'     => 'Noe annet',
+            'id' => 2,
+            'name' => 'Noe annet',
             'data.foo' => 'bar',
-            'meta'     => '',
+            'meta' => '',
             'data.bar' => 'foo',
         ], $rows[1]);
     }
 
-    public function testItGeneratesCsvFromWrappedResponse()
+    public function test_it_generates_csv_from_wrapped_response()
     {
         Collection::macro('flattenArrays', app(FlattenArrays::class)());
 
@@ -54,17 +54,17 @@ class JsonResponseToXlsxTest extends TestCase
         $this->assertEquals(['id', 'name', 'data.foo', 'meta', 'data.bar'], $headers);
         $this->assertEquals(2, count($rows));
         $this->assertEquals([
-            'id'       => 1,
-            'name'     => 'Navn',
+            'id' => 1,
+            'name' => 'Navn',
             'data.foo' => 'bar',
-            'meta'     => '',
+            'meta' => '',
             'data.bar' => '',
         ], $rows[0]);
         $this->assertEquals([
-            'id'       => 2,
-            'name'     => 'Noe annet',
+            'id' => 2,
+            'name' => 'Noe annet',
             'data.foo' => 'bar',
-            'meta'     => '',
+            'meta' => '',
             'data.bar' => 'foo',
         ], $rows[1]);
     }

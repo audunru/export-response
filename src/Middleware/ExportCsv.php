@@ -13,9 +13,7 @@ class ExportCsv
 {
     use HasParameters;
 
-    public function __construct(protected FilenameGeneratorContract $filenameGenerator)
-    {
-    }
+    public function __construct(protected FilenameGeneratorContract $filenameGenerator) {}
 
     public function handle(Request $request, Closure $next, ?string $key = null)
     {

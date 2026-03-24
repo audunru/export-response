@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 
 class JsonResponseToXmlTest extends TestCase
 {
-    public function testItGeneratesXmlFromUnwrappedResponse()
+    public function test_it_generates_xml_from_unwrapped_response()
     {
         Collection::macro('toXml', app(ToXml::class)());
         JsonResponse::macro('JsonResponseToXml', app(ToXml::class)());
@@ -22,7 +22,7 @@ class JsonResponseToXmlTest extends TestCase
 ', $response->getContent());
     }
 
-    public function testItGeneratesXmlFromWrappedResponse()
+    public function test_it_generates_xml_from_wrapped_response()
     {
         Collection::macro('toXml', app(ToXml::class)());
         JsonResponse::macro('JsonResponseToXml', app(ToXml::class)());
@@ -35,7 +35,7 @@ class JsonResponseToXmlTest extends TestCase
 ', $response->getContent());
     }
 
-    public function testItGeneratesXmlFromWrappedResponseUsingKey()
+    public function test_it_generates_xml_from_wrapped_response_using_key()
     {
         Collection::macro('toXml', app(ToXml::class)());
         JsonResponse::macro('JsonResponseToXml', app(ToXml::class)());

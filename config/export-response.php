@@ -23,17 +23,17 @@ return [
     'macros' => [
         'collection' => [
             'flattenArrays' => FlattenArrays::class,
-            'toCsv'         => ToCsv::class,
-            'toXlsx'        => ToXlsx::class,
+            'toCsv' => ToCsv::class,
+            'toXlsx' => ToXlsx::class,
         ],
         'json-response' => [
-            'toCsv'  => JsonResponseToCsv::class,
+            'toCsv' => JsonResponseToCsv::class,
             'toXlsx' => JsonResponseToXlsx::class,
-            'toXml'  => JsonResponseToXml::class,
+            'toXml' => JsonResponseToXml::class,
         ],
         'response' => [
             'contentType' => ContentType::class,
-            'filename'    => Filename::class,
+            'filename' => Filename::class,
         ],
         'request' => [
             'wants' => Wants::class,

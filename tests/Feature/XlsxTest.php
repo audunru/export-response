@@ -6,7 +6,7 @@ use audunru\ExportResponse\Tests\TestCase;
 
 class XlsxTest extends TestCase
 {
-    public function testItGetsXlsxFromUnwrappedResponse()
+    public function test_it_gets_xlsx_from_unwrapped_response()
     {
         $response = $this->get('/unwrapped', ['Accept' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']);
 
@@ -23,22 +23,22 @@ class XlsxTest extends TestCase
         $this->assertEquals(['id', 'name', 'data.foo', 'meta', 'data.bar'], $headers);
         $this->assertEquals(2, count($rows));
         $this->assertEquals([
-            'id'       => 1,
-            'name'     => 'Navn',
+            'id' => 1,
+            'name' => 'Navn',
             'data.foo' => 'bar',
-            'meta'     => '',
+            'meta' => '',
             'data.bar' => '',
         ], $rows[0]);
         $this->assertEquals([
-            'id'       => 2,
-            'name'     => 'Noe annet',
+            'id' => 2,
+            'name' => 'Noe annet',
             'data.foo' => 'bar',
-            'meta'     => '',
+            'meta' => '',
             'data.bar' => 'foo',
         ], $rows[1]);
     }
 
-    public function testItGetsXlsxFromWrappedResponse()
+    public function test_it_gets_xlsx_from_wrapped_response()
     {
         $response = $this->get('/wrapped', ['Accept' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']);
 
@@ -55,22 +55,22 @@ class XlsxTest extends TestCase
         $this->assertEquals(['id', 'name', 'data.foo', 'meta', 'data.bar'], $headers);
         $this->assertEquals(2, count($rows));
         $this->assertEquals([
-            'id'       => 1,
-            'name'     => 'Navn',
+            'id' => 1,
+            'name' => 'Navn',
             'data.foo' => 'bar',
-            'meta'     => '',
+            'meta' => '',
             'data.bar' => '',
         ], $rows[0]);
         $this->assertEquals([
-            'id'       => 2,
-            'name'     => 'Noe annet',
+            'id' => 2,
+            'name' => 'Noe annet',
             'data.foo' => 'bar',
-            'meta'     => '',
+            'meta' => '',
             'data.bar' => 'foo',
         ], $rows[1]);
     }
 
-    public function testItGetsXlsxFromLazyCollection()
+    public function test_it_gets_xlsx_from_lazy_collection()
     {
         $response = $this->get('/lazyxlsx', ['Accept' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']);
 
@@ -86,16 +86,16 @@ class XlsxTest extends TestCase
         $this->assertEquals(['id', 'name', 'data.foo', 'meta'], $headers);
         $this->assertEquals(1000, count($rows));
         $this->assertEquals([
-            'id'       => 1,
-            'name'     => 'Navn',
+            'id' => 1,
+            'name' => 'Navn',
             'data.foo' => 'bar',
-            'meta'     => '',
+            'meta' => '',
         ], $rows[0]);
         $this->assertEquals([
-            'id'       => 1000,
-            'name'     => 'Navn',
+            'id' => 1000,
+            'name' => 'Navn',
             'data.foo' => 'bar',
-            'meta'     => '',
+            'meta' => '',
         ], $rows[999]);
     }
 }
