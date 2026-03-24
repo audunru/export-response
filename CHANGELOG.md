@@ -1,3 +1,15 @@
+# [5.0.0](https://github.com/audunru/export-response/compare/v4.0.1...v5.0.0) (2026-03-24)
+
+
+### Code Refactoring
+
+* replace enum package with native enum ([44ef79a](https://github.com/audunru/export-response/commit/44ef79a7b1b6493952561b9428ca1d6e1b77afdc))
+
+
+### BREAKING CHANGES
+
+* Change MimeType::Csv() to MimeType::Csv (same for all enum values)
+
 ## [4.0.1](https://github.com/audunru/export-response/compare/v4.0.0...v4.0.1) (2026-03-24)
 
 
