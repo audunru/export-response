@@ -12,11 +12,11 @@ use Illuminate\Routing\Route;
 
 class FilenameGeneratorTest extends TestCase
 {
-    public function testItGeneratesAFilename()
+    public function test_it_generates_a_filename()
     {
         Response::macro('filename', app(Filename::class)());
 
-        $request = new Request();
+        $request = new Request;
         $routeResolver = function () {
             $route = new Route('GET', '/test', ['index']);
             $route->name('documents');
@@ -26,20 +26,20 @@ class FilenameGeneratorTest extends TestCase
         $request->setRouteResolver($routeResolver);
         $request->headers->set('Accept', 'text/csv');
 
-        $response = new JsonResponse();
+        $response = new JsonResponse;
 
-        $generator = new FilenameGenerator();
+        $generator = new FilenameGenerator;
 
         $filename = $generator->get($request, $response);
 
         $this->assertEquals('documents.csv', $filename);
     }
 
-    public function testItUsesADefaultNameWhenRouteHasNoName()
+    public function test_it_uses_a_default_name_when_route_has_no_name()
     {
         Response::macro('filename', app(Filename::class)());
 
-        $request = new Request();
+        $request = new Request;
         $routeResolver = function () {
             $route = new Route('GET', '/test', ['index']);
 
@@ -48,20 +48,20 @@ class FilenameGeneratorTest extends TestCase
         $request->setRouteResolver($routeResolver);
         $request->headers->set('Accept', 'text/csv');
 
-        $response = new JsonResponse();
+        $response = new JsonResponse;
 
-        $generator = new FilenameGenerator();
+        $generator = new FilenameGenerator;
 
         $filename = $generator->get($request, $response);
 
         $this->assertEquals('export.csv', $filename);
     }
 
-    public function testItUsesADefaultNameWhenRouteHasNoNameAndExtensionCannotBeFound()
+    public function test_it_uses_a_default_name_when_route_has_no_name_and_extension_cannot_be_found()
     {
         Response::macro('filename', app(Filename::class)());
 
-        $request = new Request();
+        $request = new Request;
         $routeResolver = function () {
             $route = new Route('GET', '/test', ['index']);
 
@@ -69,9 +69,9 @@ class FilenameGeneratorTest extends TestCase
         };
         $request->setRouteResolver($routeResolver);
 
-        $response = new JsonResponse();
+        $response = new JsonResponse;
 
-        $generator = new FilenameGenerator();
+        $generator = new FilenameGenerator;
 
         $filename = $generator->get($request, $response);
 

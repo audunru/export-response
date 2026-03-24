@@ -14,9 +14,9 @@ class MimeType extends Enum
     protected static function values(): array
     {
         return [
-            'Csv'  => 'text/csv',
+            'Csv' => 'text/csv',
             'Xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-            'Xml'  => 'application/xml',
+            'Xml' => 'application/xml',
         ];
     }
 }

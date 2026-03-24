@@ -9,7 +9,7 @@ use Illuminate\Testing\TestResponse;
 
 class JsonResponseToCsvTest extends TestCase
 {
-    public function testItGeneratesCsvFromUnwrappedResponse()
+    public function test_it_generates_csv_from_unwrapped_response()
     {
         Collection::macro('flattenArrays', app(FlattenArrays::class)());
 
@@ -22,7 +22,7 @@ class JsonResponseToCsvTest extends TestCase
 ', $response->streamedContent());
     }
 
-    public function testItGeneratesCsvFromWrappedResponse()
+    public function test_it_generates_csv_from_wrapped_response()
     {
         Collection::macro('flattenArrays', app(FlattenArrays::class)());
 
