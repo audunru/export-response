@@ -15,7 +15,7 @@ class ToXlsx
                 SimpleExcelWriter::create('php://output', 'xlsx')
                     ->addRows($this->flattenArrays())
                     ->close();
-            }))->contentType(MimeType::Xlsx())->filename($filename);
+            }))->contentType(MimeType::Xlsx)->filename($filename);
         };
     }
 }

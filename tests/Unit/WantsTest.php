@@ -16,7 +16,7 @@ class WantsTest extends TestCase
         $request = new Request;
         $request->headers->set('Accept', 'text/csv');
 
-        $result = $request->wants(MimeType::Csv());
+        $result = $request->wants(MimeType::Csv);
 
         $this->assertTrue($result);
     }
@@ -28,7 +28,7 @@ class WantsTest extends TestCase
         $request = new Request;
         $request->headers->set('Accept', 'application/xml');
 
-        $result = $request->wants(MimeType::Csv());
+        $result = $request->wants(MimeType::Csv);
 
         $this->assertFalse($result);
     }

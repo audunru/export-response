@@ -19,7 +19,7 @@ class ExportCsv
     {
         $response = $next($request);
 
-        if ($request->wants(MimeType::Csv()) && $response instanceof JsonResponse) {
+        if ($request->wants(MimeType::Csv) && $response instanceof JsonResponse) {
             $filename = $this->filenameGenerator->get($request, $response);
 
             return $response->toCsv($filename, $key);

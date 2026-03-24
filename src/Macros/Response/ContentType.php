@@ -11,7 +11,7 @@ class ContentType
     public function __invoke()
     {
         return function (MimeType $mimeType): Response|StreamedResponse {
-            $this->headers->set('Content-Type', $mimeType);
+            $this->headers->set('Content-Type', $mimeType->value);
 
             return $this;
         };

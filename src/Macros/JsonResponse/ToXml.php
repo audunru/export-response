@@ -20,7 +20,7 @@ class ToXml
             $xml = ArrayToXml::convert($data);
 
             return (new Response($xml, Response::HTTP_OK, [
-                'Content-Type' => MimeType::Xml(),
+                'Content-Type' => MimeType::Xml->value,
             ]))->filename($filename);
         };
     }

@@ -15,7 +15,7 @@ class ContentTypeTest extends TestCase
         Response::macro('contentType', app(ContentType::class)());
 
         $response = new Response;
-        $response->contentType(MimeType::Xml());
+        $response->contentType(MimeType::Xml);
 
         $this->assertEquals('application/xml', $response->headers->get('Content-Type'));
     }
@@ -25,7 +25,7 @@ class ContentTypeTest extends TestCase
         StreamedResponse::macro('contentType', app(ContentType::class)());
 
         $response = new StreamedResponse;
-        $response->contentType(MimeType::Csv());
+        $response->contentType(MimeType::Csv);
 
         $this->assertEquals('text/csv', $response->headers->get('Content-Type'));
     }

@@ -15,7 +15,7 @@ class ToCsv
                 SimpleExcelWriter::createWithoutBom('php://output', 'csv')
                     ->addRows($this->flattenArrays())
                     ->close();
-            }))->contentType(MimeType::Csv())->filename($filename);
+            }))->contentType(MimeType::Csv)->filename($filename);
         };
     }
 }
