@@ -17,14 +17,14 @@
   ],
   "require": {
     "php": "^8.3",
-    "laravel/framework": "^12.0",
+    "laravel/framework": "^13.0",
     "spatie/enum": "^3.9",
     "spatie/laravel-package-tools": "^1.9",
-    "timacdonald/has-parameters": "^1.5"
+    "timacdonald/has-parameters": "dev-l13-compatibility"
   },
   "require-dev": {
     "laravel/pint": "^1.0",
-    "orchestra/testbench": "^10.0",
+    "orchestra/testbench": "^11.0",
     "php-coveralls/php-coveralls": "^2.2",
     "phpmd/phpmd": "^2.10",
     "phpunit/phpunit": "^12.0",
@@ -32,6 +32,12 @@
     "spatie/array-to-xml": "^3.1",
     "spatie/simple-excel": "^3.0"
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/laravel-shift/has-parameters.git"
+    }
+  ],
   "config": {
     "optimize-autoloader": true,
     "preferred-install": "dist",
