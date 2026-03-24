@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/audunru/export-response/compare/v4.0.0...v4.0.1) (2026-03-24)
+
+
+### Bug Fixes
+
+* laravel 13 support including dependencies ([#95](https://github.com/audunru/export-response/issues/95)) ([74666e4](https://github.com/audunru/export-response/commit/74666e484f31a49464fa761c922a5935d6c33c96))
+
 # [4.0.0](https://github.com/audunru/export-response/compare/v3.0.4...v4.0.0) (2026-03-24)
 
 
