@@ -2,3 +2,4 @@
 *.cache
 build/logs/clover.xml
 .DS_Store
+composer.lock
