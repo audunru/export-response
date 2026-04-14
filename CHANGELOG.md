@@ -1,3 +1,10 @@
+## [5.0.1](https://github.com/audunru/export-response/compare/v5.0.0...v5.0.1) (2026-04-14)
+
+
+### Bug Fixes
+
+* use L13 compatible has-parameters ([#98](https://github.com/audunru/export-response/issues/98)) ([ff38ab5](https://github.com/audunru/export-response/commit/ff38ab5d7d71508888c1a45a5085f75cc919dda2))
+
 # [5.0.0](https://github.com/audunru/export-response/compare/v4.0.1...v5.0.0) (2026-03-24)
 
 
