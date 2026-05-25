@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/audunru/export-response/compare/v5.0.1...v5.1.0) (2026-05-25)
+
+
+### Features
+
+* add Trivy security scan workflow ([#102](https://github.com/audunru/export-response/issues/102)) ([620f777](https://github.com/audunru/export-response/commit/620f7771c0cdf69ccc5dd28eb088ee5c3c099cfa))
+
 ## [5.0.1](https://github.com/audunru/export-response/compare/v5.0.0...v5.0.1) (2026-04-14)
 
 
