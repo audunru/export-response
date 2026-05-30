@@ -15,7 +15,7 @@ class JsonResponseToCsvTest extends TestCase
 
         $response = new TestResponse($this->getUnwrappedResponse()->toCsv('filename.csv'));
 
-        $this->assertEquals("attachment; filename=\"filename.csv\"; filename*=utf-8''filename.csv", $response->headers->get('Content-Disposition'));
+        $this->assertEquals('attachment; filename=filename.csv', $response->headers->get('Content-Disposition'));
         $this->assertEquals('id,name,data.foo,meta,data.bar
 1,Navn,bar,,
 2,"Noe annet",bar,,foo
@@ -28,7 +28,7 @@ class JsonResponseToCsvTest extends TestCase
 
         $response = new TestResponse($this->getWrappedResponse()->toCsv('filename.csv', 'data'));
 
-        $this->assertEquals("attachment; filename=\"filename.csv\"; filename*=utf-8''filename.csv", $response->headers->get('Content-Disposition'));
+        $this->assertEquals('attachment; filename=filename.csv', $response->headers->get('Content-Disposition'));
         $this->assertEquals('id,name,data.foo,meta,data.bar
 1,Navn,bar,,
 2,"Noe annet",bar,,foo
