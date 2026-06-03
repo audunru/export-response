@@ -14,7 +14,7 @@ class XlsxTest extends TestCase
             ->assertOk()
             ->assertHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 
-        $this->assertEquals("attachment; filename=\"documents.xlsx\"; filename*=utf-8''documents.xlsx", $response->headers->get('Content-Disposition'));
+        $this->assertEquals('attachment; filename=documents.xlsx', $response->headers->get('Content-Disposition'));
 
         $reader = $this->getExcelReader($response->streamedContent());
         $headers = $reader->getHeaders();
@@ -46,7 +46,7 @@ class XlsxTest extends TestCase
             ->assertOk()
             ->assertHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 
-        $this->assertEquals("attachment; filename=\"documents.xlsx\"; filename*=utf-8''documents.xlsx", $response->headers->get('Content-Disposition'));
+        $this->assertEquals('attachment; filename=documents.xlsx', $response->headers->get('Content-Disposition'));
 
         $reader = $this->getExcelReader($response->streamedContent());
         $headers = $reader->getHeaders();
@@ -78,7 +78,7 @@ class XlsxTest extends TestCase
             ->assertOk()
             ->assertHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 
-        $this->assertEquals("attachment; filename=\"lazy.xlsx\"; filename*=utf-8''lazy.xlsx", $response->headers->get('Content-Disposition'));
+        $this->assertEquals('attachment; filename=lazy.xlsx', $response->headers->get('Content-Disposition'));
         $reader = $this->getExcelReader($response->streamedContent());
         $headers = $reader->getHeaders();
         $rows = $reader->getRows()->toArray();

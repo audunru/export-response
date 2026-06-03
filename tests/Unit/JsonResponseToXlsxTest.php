@@ -15,7 +15,7 @@ class JsonResponseToXlsxTest extends TestCase
 
         $response = new TestResponse($this->getUnwrappedResponse()->toXlsx('filename.xlsx'));
 
-        $this->assertEquals("attachment; filename=\"filename.xlsx\"; filename*=utf-8''filename.xlsx", $response->headers->get('Content-Disposition'));
+        $this->assertEquals('attachment; filename=filename.xlsx', $response->headers->get('Content-Disposition'));
 
         $reader = $this->getExcelReader($response->streamedContent());
         $headers = $reader->getHeaders();
@@ -45,7 +45,7 @@ class JsonResponseToXlsxTest extends TestCase
 
         $response = new TestResponse($this->getWrappedResponse()->toXlsx('filename.xlsx', 'data'));
 
-        $this->assertEquals("attachment; filename=\"filename.xlsx\"; filename*=utf-8''filename.xlsx", $response->headers->get('Content-Disposition'));
+        $this->assertEquals('attachment; filename=filename.xlsx', $response->headers->get('Content-Disposition'));
 
         $reader = $this->getExcelReader($response->streamedContent());
         $headers = $reader->getHeaders();
