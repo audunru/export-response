@@ -1,3 +1,10 @@
+## [5.1.1](https://github.com/audunru/export-response/compare/v5.1.0...v5.1.1) (2026-06-03)
+
+
+### Bug Fixes
+
+* build Content-Disposition with HeaderUtils to prevent header injection ([#107](https://github.com/audunru/export-response/issues/107)) ([50175f9](https://github.com/audunru/export-response/commit/50175f906e5dc8db05dae7cd711a5c64dd3f791f))
+
 # [5.1.0](https://github.com/audunru/export-response/compare/v5.0.1...v5.1.0) (2026-05-25)
 
 
