@@ -22,7 +22,11 @@ class ExportXml
         if ($request->wants(MimeType::Xml) && $response instanceof JsonResponse) {
             $filename = $this->filenameGenerator->get($request, $response);
 
-            return $response->toXml($filename, $key);
+            $response = $response->toXml($filename, $key);
+        }
+
+        if (! in_array('Accept', $response->getVary())) {
+            $response->setVary('Accept', false);
         }
 
         return $response;

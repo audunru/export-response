@@ -50,4 +50,11 @@ class CsvTest extends TestCase
         $this->assertEquals('id,name,data.foo,meta', $content[0]);
         $this->assertEquals('1,Navn,bar,', $content[1]);
     }
+
+    public function test_it_varies_csv_response_by_accept_header()
+    {
+        $response = $this->get('/unwrapped', ['Accept' => 'text/csv']);
+
+        $this->assertEquals(['Accept'], $response->baseResponse->getVary());
+    }
 }

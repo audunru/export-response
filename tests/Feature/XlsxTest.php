@@ -98,4 +98,11 @@ class XlsxTest extends TestCase
             'meta' => '',
         ], $rows[999]);
     }
+
+    public function test_it_varies_xlsx_response_by_accept_header()
+    {
+        $response = $this->get('/unwrapped', ['Accept' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']);
+
+        $this->assertEquals(['Accept'], $response->baseResponse->getVary());
+    }
 }
