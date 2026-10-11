@@ -22,7 +22,11 @@ class ExportCsv
         if ($request->wants(MimeType::Csv) && $response instanceof JsonResponse) {
             $filename = $this->filenameGenerator->get($request, $response);
 
-            return $response->toCsv($filename, $key);
+            $response = $response->toCsv($filename, $key);
+        }
+
+        if (! in_array('Accept', $response->getVary())) {
+            $response->setVary('Accept', false);
         }
 
         return $response;

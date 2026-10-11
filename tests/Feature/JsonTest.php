@@ -31,4 +31,11 @@ class JsonTest extends TestCase
                 ],
             ]]);
     }
+
+    public function test_it_varies_json_response_by_accept_header()
+    {
+        $response = $this->get('/wrapped', ['Accept' => 'application/json']);
+
+        $this->assertEquals(['Accept'], $response->baseResponse->getVary());
+    }
 }

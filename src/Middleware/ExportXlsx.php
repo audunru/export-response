@@ -22,7 +22,11 @@ class ExportXlsx
         if ($request->wants(MimeType::Xlsx) && $response instanceof JsonResponse) {
             $filename = $this->filenameGenerator->get($request, $response);
 
-            return $response->toXlsx($filename, $key);
+            $response = $response->toXlsx($filename, $key);
+        }
+
+        if (! in_array('Accept', $response->getVary())) {
+            $response->setVary('Accept', false);
         }
 
         return $response;

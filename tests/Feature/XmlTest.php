@@ -19,4 +19,11 @@ class XmlTest extends TestCase
 <root><data><id>1</id><name>Navn</name><data><foo>bar</foo></data><meta/></data><data><id>2</id><name>Noe annet</name><data><foo>bar</foo><bar>foo</bar></data></data><meta><page>1</page></meta></root>
 ', $response->getContent());
     }
+
+    public function test_it_varies_xml_response_by_accept_header()
+    {
+        $response = $this->get('/wrapped', ['Accept' => 'application/xml']);
+
+        $this->assertEquals(['Accept'], $response->baseResponse->getVary());
+    }
 }
