@@ -1,3 +1,10 @@
+## [5.1.3](https://github.com/audunru/export-response/compare/v5.1.2...v5.1.3) (2026-10-11)
+
+
+### Bug Fixes
+
+* add Vary: Accept to responses from export middleware ([#126](https://github.com/audunru/export-response/issues/126)) ([7d345fd](https://github.com/audunru/export-response/commit/7d345fda9e926db4f8a68c3490ef9890e9693eb7))
+
 ## [5.1.2](https://github.com/audunru/export-response/compare/v5.1.1...v5.1.2) (2026-10-11)
 
 
