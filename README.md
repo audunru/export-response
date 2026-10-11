@@ -143,6 +143,12 @@ For XML, set the header to `application/xml`.
 
 For XLSX, set the header to `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`.
 
+# Security
+
+XLSX exports write all string values as text cells. A string that starts with `=` is never written as a formula.
+
+CSV exports write values unchanged, because CSV has no cell types. A spreadsheet program can read a value that starts with `=`, `+`, `-` or `@` as a formula (CSV injection). If users can put text into fields that you export, and other users open the CSV file in a spreadsheet program, sanitize the data before the export or use XLSX.
+
 # Configuration
 
 Publish the configuration file by running:
