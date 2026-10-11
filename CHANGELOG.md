@@ -1,3 +1,10 @@
+## [5.1.2](https://github.com/audunru/export-response/compare/v5.1.1...v5.1.2) (2026-10-11)
+
+
+### Bug Fixes
+
+* write xlsx strings as text cells to prevent formula injection ([#125](https://github.com/audunru/export-response/issues/125)) ([287e021](https://github.com/audunru/export-response/commit/287e021b2d665dacf844b80cbc5fe4e09eeb7ed7))
+
 ## [5.1.1](https://github.com/audunru/export-response/compare/v5.1.0...v5.1.1) (2026-06-03)
 
 
