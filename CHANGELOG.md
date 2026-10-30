@@ -1,3 +1,10 @@
+# [5.2.0](https://github.com/audunru/export-response/compare/v5.1.3...v5.2.0) (2026-10-30)
+
+
+### Features
+
+* add opt-in escaping of formula characters in csv export ([#131](https://github.com/audunru/export-response/issues/131)) ([839eefc](https://github.com/audunru/export-response/commit/839eefcc3431dab7cae3542552f91e49de5fb625)), closes [#129](https://github.com/audunru/export-response/issues/129)
+
 ## [5.1.3](https://github.com/audunru/export-response/compare/v5.1.2...v5.1.3) (2026-10-11)
 
 
