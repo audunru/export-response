@@ -21,8 +21,16 @@ class CollectionToCsvTest extends TestCase
         ['3', "'\tfoo", "'\rfoo", '+1.5', 'Noe annet'],
     ];
 
+    public function test_it_does_not_escape_formula_characters_by_default()
+    {
+        $response = new TestResponse(collect([['=key' => '=1+1', 'amount' => '-5,00']])->toCsv('filename.csv'));
+
+        $this->assertEquals([['=key', 'amount'], ['=1+1', '-5,00']], $this->parseCsv($response->streamedContent()));
+    }
+
     public function test_it_escapes_formula_characters()
     {
+        config(['export-response.escape-csv-formulas' => true]);
         $response = new TestResponse(collect(self::ROWS)->toCsv('filename.csv'));
 
         $this->assertEquals(self::EXPECTED, $this->parseCsv($response->streamedContent()));
@@ -30,6 +38,7 @@ class CollectionToCsvTest extends TestCase
 
     public function test_it_escapes_formula_characters_from_lazy_collection()
     {
+        config(['export-response.escape-csv-formulas' => true]);
         $response = new TestResponse(LazyCollection::make(self::ROWS)->toCsv('filename.csv'));
 
         $this->assertEquals(self::EXPECTED, $this->parseCsv($response->streamedContent()));

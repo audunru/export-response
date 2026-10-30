@@ -12,8 +12,8 @@ class ToCsv
     {
         return function (string $filename): StreamedResponse {
             return (new StreamedResponse(function () {
-                // Prefix strings that a spreadsheet program can read as a formula with "'" to prevent CSV injection
-                $escape = fn (mixed $value): mixed => is_string($value) && ! is_numeric($value) && preg_match('/^[=+\-@\t\r]/', $value)
+                // If enabled, prefix strings that a spreadsheet program can read as a formula with "'" to prevent CSV injection
+                $escape = fn (mixed $value): mixed => config('export-response.escape-csv-formulas') && is_string($value) && ! is_numeric($value) && preg_match('/^[=+\-@\t\r]/', $value)
                     ? "'".$value
                     : $value;
                 $toRow = fn (array $values): array => array_map($escape, array_values($values));

@@ -18,6 +18,12 @@ return [
     'filename-generator' => FilenameGenerator::class,
 
     /*
+     * Prefix CSV string values that start with =, +, -, @, TAB or CR with "'", so that
+     * spreadsheet programs do not read them as formulas (CSV injection). This changes the data.
+     */
+    'escape-csv-formulas' => false,
+
+    /*
      * You can replace these macros with your own implementations if necessary.
      */
     'macros' => [
