@@ -147,7 +147,9 @@ For XLSX, set the header to `application/vnd.openxmlformats-officedocument.sprea
 
 XLSX exports write all string values as text cells. A string that starts with `=` is never written as a formula.
 
-CSV exports write values unchanged, because CSV has no cell types. A spreadsheet program can read a value that starts with `=`, `+`, `-` or `@` as a formula (CSV injection). If users can put text into fields that you export, and other users open the CSV file in a spreadsheet program, sanitize the data before the export or use XLSX.
+CSV has no cell types, thus a spreadsheet program can read a value that starts with `=`, `+`, `-`, `@`, TAB or CR as a formula (CSV injection). If users who are not trusted can write data that others open in a spreadsheet program, set `escape-csv-formulas` to `true` in the configuration. CSV exports then add a `'` before string values and column names that start with one of these characters. Values that PHP `is_numeric` accepts (for example `-5`) are not changed, but other values are (for example `-5,00` or `+47 12345678`).
+
+This is off by default because it changes the data. It also does not stop all attacks. For example, a spreadsheet program that uses `;` as separator can read text after a `;` in the middle of a value as a new cell.
 
 # Configuration
 
